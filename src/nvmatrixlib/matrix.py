@@ -21,7 +21,19 @@ class Matrix:
         """
         colorsFalse = (('gray80', 'gray70'), ('white', 'gray90'))
         colorsTrue = (('red3', 'red4'), ('blue3', 'blue4'))
-        r = 0
+        c = 1
+        for crId in novel.characters:
+            tk.Label(master,
+                     text=novel.characters[crId].title,
+                     bg=colorsFalse[c % 2][1],
+                     justify=tk.LEFT,
+                     anchor=tk.W
+                     ).grid(sticky='nsew',
+                            column=c,
+                            row=0)
+            c += 1
+
+        r = 1
         for chId in novel.chapters:
             for scId in novel.chapters[chId].srtScenes:
                 tk.Label(master,
@@ -32,11 +44,19 @@ class Matrix:
                          ).grid(sticky='nsew',
                                 column=0,
                                 row=r)
-                for c in range(20):
-                    Node(master,
+                c = 0
+                for crId in novel.characters:
+                    node = Node(master,
                          colorFalse=colorsFalse[c % 2][r % 2],
                          colorTrue=colorsTrue[c % 2][r % 2]
-                         ).grid(column=c + 1, row=r)
+                         )
+                    node.grid(column=c + 1, row=r)
+                    try:
+                        if crId in novel.scenes[scId].characters:
+                            node.state = True
+                    except TypeError:
+                        pass
+                    c += 1
                 r += 1
 
 
