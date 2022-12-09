@@ -19,14 +19,14 @@ class Matrix:
         Positional arguments:
             novel -- Novel: Project reference.
         """
-        colorsFalse = (('white', 'gray90'), ('gray80', 'gray70'))
-        colorsTrue = (('royal blue', 'royal blue'), ('midnight blue', 'midnight blue'))
+        colorsFalse = (('gray80', 'gray70'), ('white', 'gray90'))
+        colorsTrue = (('red3', 'red4'), ('blue3', 'blue4'))
         r = 0
         for chId in novel.chapters:
             for scId in novel.chapters[chId].srtScenes:
                 tk.Label(master,
                          text=novel.scenes[scId].title,
-                         bg=colorsFalse[0][r % 2],
+                         bg=colorsFalse[1][r % 2],
                          justify=tk.LEFT,
                          anchor=tk.W
                          ).grid(sticky='nsew',
