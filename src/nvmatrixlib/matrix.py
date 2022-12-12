@@ -19,45 +19,53 @@ class Matrix:
         Positional arguments:
             novel -- Novel: Project reference.
         """
-        colorsFalse = (('gray80', 'gray70'), ('white', 'gray90'))
-        colorsTrue = (('red3', 'red4'), ('blue3', 'blue4'))
-        c = 1
-        for crId in novel.characters:
-            tk.Label(master,
-                     text=novel.characters[crId].title,
-                     bg=colorsFalse[c % 2][1],
-                     justify=tk.LEFT,
-                     anchor=tk.W
-                     ).grid(sticky='nsew',
-                            column=c,
-                            row=0)
-            c += 1
-
-        r = 1
+        colorsFalse = (('white', 'gray95'), ('gray85', 'gray80'))
+        colorsTrue = (('blue4', 'red4'), ('blue3', 'red3'))
+        row = 0
+        bgr = row % 2
+        col = 0
+        bgc = col % 2
+        columns = []
+        columns.append(tk.Frame(master))
+        columns[col].pack(side=tk.LEFT)
+        tk.Label(columns[col], text=' ', bg=colorsFalse[bgr][bgc]).pack(fill=tk.X)
         for chId in novel.chapters:
             for scId in novel.chapters[chId].srtScenes:
-                tk.Label(master,
+                row += 1
+                bgr = row % 2
+                tk.Label(columns[col],
                          text=novel.scenes[scId].title,
-                         bg=colorsFalse[1][r % 2],
+                         bg=colorsFalse[bgr][bgc],
                          justify=tk.LEFT,
                          anchor=tk.W
-                         ).grid(sticky='nsew',
-                                column=0,
-                                row=r)
-                c = 0
-                for crId in novel.characters:
-                    node = Node(master,
-                         colorFalse=colorsFalse[c % 2][r % 2],
-                         colorTrue=colorsTrue[c % 2][r % 2]
+                         ).pack(fill=tk.X)
+        for crId in novel.characters:
+            row = 0
+            bgr = row % 2
+            col += 1
+            bgc = col % 2
+            columns.append(tk.Frame(master))
+            columns[col].pack(side=tk.LEFT)
+            tk.Label(columns[col],
+                     text=novel.characters[crId].title,
+                     bg=colorsFalse[bgr][bgc],
+                     justify=tk.LEFT,
+                     anchor=tk.W
+                     ).pack(fill=tk.X)
+            for chId in novel.chapters:
+                for scId in novel.chapters[chId].srtScenes:
+                    row += 1
+                    bgr = row % 2
+                    node = Node(columns[col],
+                         colorFalse=colorsFalse[bgr][bgc],
+                         colorTrue=colorsTrue[bgr][bgc]
                          )
-                    node.grid(column=c + 1, row=r)
+                    node.pack(fill=tk.X)
                     try:
                         if crId in novel.scenes[scId].characters:
                             node.state = True
                     except TypeError:
                         pass
-                    c += 1
-                r += 1
 
 
 class Node(tk.Label):
