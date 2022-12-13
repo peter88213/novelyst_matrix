@@ -2,8 +2,7 @@
 
 --- 
 
-A simple [novelyst](https://peter88213.github.io/novelyst/) plugin providing a book/series matrix manager. 
-.
+A plugin providing a scene relationship matrix for [novelyst](https://peter88213.github.io/novelyst/).
 
 ### Installation
 
@@ -14,11 +13,12 @@ The plugin adds a "Matrix" entry to the *novelyst* "Tools" menu.
 
 ## Usage
 
-Start the matrix manager from the main menu: **Tools > Matrix**.
+- Start the matrix manager from the main menu: **Tools > Matrix**.
+- Add/Remove relationships by klicking on the nodes.
 
 ### Exit 
 
-- When closing the window, changes are applied to the project.
+- When closing the window, you are asked whether changes shall be applied to the project.
 
 
 ## License

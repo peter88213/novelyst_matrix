@@ -5,10 +5,15 @@
 ## Changelog
 
 
-### v0.3.2 
+### v0.3.2 Alpha
 
 - Tune the colors.
 - Close the window when the project is closed.
+
+**Todo: **
+
+- Split the main window into element sections.
+- Add scrollbars.
 
 Compatibility: novelyst v4.0 API
 
