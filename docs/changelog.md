@@ -5,6 +5,15 @@
 ## Changelog
 
 
+### v0.2.0 
+
+- Process locations and items.
+- Ask before applying changes.
+- Change colors.
+- Put the Node class in its own module.
+
+Compatibility: novelyst v4.0 API
+
 ### v0.1.1 
 
 - Add disable_menu() and enable_menu() methods.

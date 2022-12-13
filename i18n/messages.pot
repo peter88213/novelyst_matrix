@@ -3,8 +3,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.1.1\n"
-"POT-Creation-Date: 2022-12-13 12:40:06\n"
+"Project-Id-Version: 0.2.0\n"
+"POT-Creation-Date: 2022-12-13 16:11:42\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: LANGUAGE\n"
@@ -13,6 +13,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: PyWriter pgettext.py 0.3\n"
 
+
+msgid "Apply changes"
+msgstr ""
 
 msgid "Matrix"
 msgstr ""

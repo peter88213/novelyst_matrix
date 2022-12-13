@@ -4,14 +4,12 @@ Copyright (c) 2022 Peter Triesberger
 For further information see https://github.com/peter88213/novelyst_matrix
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
-import os
 import tkinter as tk
-from tkinter import filedialog
-from tkinter import messagebox
 from tkinter import ttk
-from novelystlib.widgets.text_box import TextBox
+from tkinter import messagebox
 from nvmatrixlib.nvmatrix_globals import *
 from nvmatrixlib.matrix import Matrix
+from nvmatrixlib.node import Node
 from nvmatrixlib.configuration import Configuration
 
 SETTINGS = dict(
@@ -54,6 +52,7 @@ class MatrixTk(tk.Toplevel):
         self.mainWindow.pack(fill=tk.BOTH, padx=2, pady=2)
 
         #--- The Matrix.
+        Node.isModified = False
         if self._ui.novel is not None:
             self._matrix = Matrix(self.mainWindow, self._ui.novel)
             self._matrix.set_nodes()
@@ -63,8 +62,10 @@ class MatrixTk(tk.Toplevel):
     def on_quit(self, event=None):
 
         #--- Apply changes.
-        self._matrix.get_nodes()
-        self._ui.prjFile.write()
+        if Node.isModified:
+            if messagebox.askyesno(PLUGIN, f"{_('Apply changes')}?"):
+                self._matrix.get_nodes()
+                self._ui.prjFile.write()
 
         #--- Save project specific configuration.
         for keyword in self.kwargs:

@@ -46,7 +46,7 @@ class Plugin:
                 return
 
         __, x, y = self._ui.root.geometry().split('+')
-        offset = 300
+        offset = 100
         windowGeometry = f'+{int(x)+offset}+{int(y)+offset}'
         try:
             homeDir = str(Path.home()).replace('\\', '/')
