@@ -14,7 +14,9 @@ class Plugin:
     
     Public methods:
         disable_menu() -- disable menu entries when no project is open.
-        enable_menu() -- enable menu entries when a project is open.    
+        enable_menu() -- enable menu entries when a project is open.   
+        on_quit() -- Apply changes and close the window.
+        on_close() -- Apply changes and close the window.
     """
     VERSION = '@release'
     NOVELYST_API = '4.0'
@@ -54,8 +56,12 @@ class Plugin:
         """Enable menu entries when a project is open."""
         self._ui.toolsMenu.entryconfig(APPLICATION, state='normal')
 
+    def on_close(self):
+        """Apply changes and close the window."""
+        self.on_quit()
+
     def on_quit(self):
-        """Write back the configuration file."""
+        """Apply changes and close the window."""
         if self._matrixViewer:
             if self._matrixViewer.isOpen:
                 self._matrixViewer.on_quit()

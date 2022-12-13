@@ -31,10 +31,10 @@ class Matrix:
         """
         self._novel = novel
         colorsBackground = (('white', 'gray95'), ('gray85', 'gray80'))
-        colorsCharacter = (('goldenrod3', 'orange3'), ('goldenrod4', 'orange4'))
-        colorsLocation = (('brown3', 'red3'), ('brown4', 'red4'))
-        colorsItem = (('green3', 'blue3'), ('green4', 'blue4'))
-        colorsArc = (('green3', 'blue3'), ('green4', 'blue4'))
+        colorsCharacter = (('goldenrod1', 'goldenrod3'), ('goldenrod3', 'goldenrod4'))
+        colorsLocation = (('coral1', 'coral3'), ('coral3', 'coral4'))
+        colorsItem = (('aquamarine1', 'aquamarine3'), ('aquamarine3', 'aquamarine4'))
+        colorsArc = (('royalBlue1', 'royalBlue3'), ('royalBlue3', 'royalBlue4'))
         row = 0
         bgr = row % 2
         col = 0

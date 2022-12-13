@@ -5,6 +5,13 @@
 ## Changelog
 
 
+### v0.3.2 
+
+- Tune the colors.
+- Close the window when the project is closed.
+
+Compatibility: novelyst v4.0 API
+
 ### v0.3.1 
 
 - Remove dead code.

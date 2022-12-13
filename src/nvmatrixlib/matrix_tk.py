@@ -47,17 +47,17 @@ class MatrixTk(tk.Toplevel):
         if self._ui.novel is not None:
             self._matrix = Matrix(self.mainWindow, self._ui.novel)
             self._matrix.set_nodes()
+        self.isOpen = True
 
-    #--- Application related methods.
-
-    def on_quit(self, event=None):
-
-        #--- Apply changes.
+    def _apply_changes(self):
         if Node.isModified:
             if messagebox.askyesno(PLUGIN, f"{_('Apply changes')}?"):
                 self._matrix.get_nodes()
-                self._ui.prjFile.write()
+                self._ui.isModified = True
                 self._ui.refresh_tree()
 
+    def on_quit(self, event=None):
+        self._apply_changes()
         self.destroy()
         self.isOpen = False
+
