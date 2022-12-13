@@ -66,6 +66,7 @@ class MatrixTk(tk.Toplevel):
             if messagebox.askyesno(PLUGIN, f"{_('Apply changes')}?"):
                 self._matrix.get_nodes()
                 self._ui.prjFile.write()
+                self._ui.refresh_tree()
 
         #--- Save project specific configuration.
         for keyword in self.kwargs:

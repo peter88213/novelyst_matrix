@@ -5,6 +5,13 @@
 ## Changelog
 
 
+### v0.3.0 
+
+- Process arcs.
+- Refresh tree after applying changes.
+
+Compatibility: novelyst v4.0 API
+
 ### v0.2.0 
 
 - Process locations and items.
