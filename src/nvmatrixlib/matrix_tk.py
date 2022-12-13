@@ -56,12 +56,17 @@ class MatrixTk(tk.Toplevel):
         #--- The Matrix.
         if self._ui.novel is not None:
             self._matrix = Matrix(self.mainWindow, self._ui.novel)
+            self._matrix.set_nodes()
 
     #--- Application related methods.
 
     def on_quit(self, event=None):
 
-        #--- Save project specific configuration
+        #--- Apply changes.
+        self._matrix.get_nodes()
+        self._ui.prjFile.write()
+
+        #--- Save project specific configuration.
         for keyword in self.kwargs:
             if keyword in self.configuration.options:
                 self.configuration.options[keyword] = self.kwargs[keyword]

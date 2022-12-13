@@ -19,6 +19,7 @@ class Matrix:
         Positional arguments:
             novel -- Novel: Project reference.
         """
+        self._novel = novel
         colorsFalse = (('white', 'gray95'), ('gray85', 'gray80'))
         colorsTrue = (('blue4', 'red4'), ('blue3', 'red3'))
         row = 0
@@ -29,6 +30,8 @@ class Matrix:
         columns.append(tk.Frame(master))
         columns[col].pack(side=tk.LEFT)
         tk.Label(columns[col], text=' ', bg=colorsFalse[bgr][bgc]).pack(fill=tk.X)
+
+        #--- Scene title column.
         for chId in novel.chapters:
             for scId in novel.chapters[chId].srtScenes:
                 row += 1
@@ -39,6 +42,14 @@ class Matrix:
                          justify=tk.LEFT,
                          anchor=tk.W
                          ).pack(fill=tk.X)
+
+        #--- Initialize the matrix data.
+        self.sceneCharacters = {}
+        for chId in novel.chapters:
+            for scId in novel.chapters[chId].srtScenes:
+                self.sceneCharacters[scId] = {}
+
+        #--- Character columns.
         for crId in novel.characters:
             row = 0
             bgr = row % 2
@@ -61,11 +72,27 @@ class Matrix:
                          colorTrue=colorsTrue[bgr][bgc]
                          )
                     node.pack(fill=tk.X)
-                    try:
-                        if crId in novel.scenes[scId].characters:
-                            node.state = True
-                    except TypeError:
-                        pass
+                    self.sceneCharacters[scId][crId] = node
+
+    def set_nodes(self):
+        for scId in self.sceneCharacters:
+            for crId in self._novel.characters:
+                try:
+                    self.sceneCharacters[scId][crId].state = (crId in self._novel.scenes[scId].characters)
+                except TypeError:
+                    pass
+
+    def get_nodes(self):
+        for scId in self.sceneCharacters:
+            self._novel.scenes[scId].characters = []
+            for crId in self._novel.characters:
+                try:
+                    node = self.sceneCharacters[scId][crId]
+                except TypeError:
+                    pass
+                else:
+                    if node.state:
+                        self._novel.scenes[scId].characters.append(crId)
 
 
 class Node(tk.Label):
