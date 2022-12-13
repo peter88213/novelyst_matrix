@@ -2,7 +2,7 @@
 
 A plugin providing a scene relationship matrix. 
 
-For more information, see the [project homepage](https://peter88213.github.io/novelyst_marix) with description and download instructions.
+For more information, see the [project homepage](https://peter88213.github.io/novelyst_matrix) with description and download instructions.
 
 
 ## License
