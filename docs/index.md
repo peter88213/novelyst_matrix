@@ -2,17 +2,14 @@
 
 The [novelyst](https://peter88213.github.io/novelyst/) Python program helps authors organize novels.  
 
-*novelyst_matrix* is a plugin providing a book/series matrix manager. 
+*novelyst_matrix* is a plugin providing a scene relationship matrix. 
 
 ![Screenshot](Screenshots/screen01.png)
 
 ## Features
 
-- Show a tree with series and books.
-- Each book can stand alone, or belong to a series.
-- Show book/series title and desctiption.
-- Load the selected book into novelyst by double-click. 
-- Handle multiple matrixs, represented by XML files with the extension *.pwc*.
+- Display scene relationships to characters, locations, items, and arcs with a spreadsheet-like matrix.
+- Add/Remove relationships by klicking on the nodes.
 
 ## Requirements
 
