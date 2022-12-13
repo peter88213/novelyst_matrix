@@ -10,7 +10,7 @@
 - Tune the colors.
 - Close the window when the project is closed.
 
-**Todo: **
+#### Todo:
 
 - Split the main window into element sections.
 - Add scrollbars.
