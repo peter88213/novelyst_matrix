@@ -10,7 +10,6 @@ from tkinter import messagebox
 from nvmatrixlib.nvmatrix_globals import *
 from nvmatrixlib.matrix import Matrix
 from nvmatrixlib.node import Node
-from nvmatrixlib.configuration import Configuration
 
 SETTINGS = dict(
     last_open='',
@@ -22,17 +21,9 @@ OPTIONS = {}
 class MatrixTk(tk.Toplevel):
     _KEY_QUIT_PROGRAM = ('<Control-q>', 'Ctrl-Q')
 
-    def __init__(self, ui, position, configDir):
+    def __init__(self, ui, position):
         self._ui = ui
         super().__init__()
-
-        #--- Load configuration.
-        self.iniFile = f'{configDir}/matrix.ini'
-        self.configuration = Configuration(SETTINGS, OPTIONS)
-        self.configuration.read(self.iniFile)
-        self.kwargs = {}
-        self.kwargs.update(self.configuration.settings)
-        # Read the file path from the configuration file.
 
         self.title(PLUGIN)
         self._statusText = ''
@@ -68,12 +59,5 @@ class MatrixTk(tk.Toplevel):
                 self._ui.prjFile.write()
                 self._ui.refresh_tree()
 
-        #--- Save project specific configuration.
-        for keyword in self.kwargs:
-            if keyword in self.configuration.options:
-                self.configuration.options[keyword] = self.kwargs[keyword]
-            elif keyword in self.configuration.settings:
-                self.configuration.settings[keyword] = self.kwargs[keyword]
-        self.configuration.write(self.iniFile)
         self.destroy()
         self.isOpen = False

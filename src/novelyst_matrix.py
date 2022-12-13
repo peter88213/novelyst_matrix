@@ -1,20 +1,16 @@
-"""A project matrix manager plugin for novelyst.
+"""A relationship matrix plugin for novelyst
 
 Requires Python 3.6+
 Copyright (c) 2022 Peter Triesberger
 For further information see https://github.com/peter88213/novelyst_matrix
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
-import os
-from pathlib import Path
 from nvmatrixlib.nvmatrix_globals import *
 from nvmatrixlib.matrix_tk import MatrixTk
 
-DEFAULT_FILE = 'matrix.pwc'
-
 
 class Plugin:
-    """novelyst matrix manager plugin class.
+    """novelyst relationship matrix plugin class.
     
     Public methods:
         disable_menu() -- disable menu entries when no project is open.
@@ -22,7 +18,7 @@ class Plugin:
     """
     VERSION = '@release'
     NOVELYST_API = '4.0'
-    DESCRIPTION = 'A book/series matrix manager'
+    DESCRIPTION = 'A relationship matrix'
     URL = 'https://peter88213.github.io/novelyst_matrix'
 
     def install(self, ui):
@@ -48,12 +44,7 @@ class Plugin:
         __, x, y = self._ui.root.geometry().split('+')
         offset = 100
         windowGeometry = f'+{int(x)+offset}+{int(y)+offset}'
-        try:
-            homeDir = str(Path.home()).replace('\\', '/')
-            configDir = f'{homeDir}/.pywriter/novelyst/config'
-        except:
-            configDir = '.'
-        self._matrixViewer = MatrixTk(self._ui, windowGeometry, configDir)
+        self._matrixViewer = MatrixTk(self._ui, windowGeometry)
 
     def disable_menu(self):
         """Disable menu entries when no project is open."""

@@ -5,6 +5,13 @@
 ## Changelog
 
 
+### v0.3.1 
+
+- Remove dead code.
+- Fix the title text for the plugin manager.
+
+Compatibility: novelyst v4.0 API
+
 ### v0.3.0 
 
 - Process arcs.

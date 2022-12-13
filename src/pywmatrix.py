@@ -30,6 +30,9 @@ class MatrixTk(MainTk):
         plugin = Plugin()
         plugin.install(self)
 
+    def refresh_tree(self):
+        """Test dummy."""
+
 
 if __name__ == '__main__':
     ui = MatrixTk()
