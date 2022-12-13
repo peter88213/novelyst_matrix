@@ -8,6 +8,7 @@ The [novelyst](https://peter88213.github.io/novelyst/) Python program helps auth
 
 ## Features
 
+- The plugin adds a "Matrix" entry to the *novelyst* "Tools" menu.
 - Display scene relationships to characters, locations, items, and arcs with a spreadsheet-like matrix.
 - Add/Remove relationships by klicking on the nodes.
 

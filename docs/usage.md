@@ -9,12 +9,12 @@ A simple [novelyst](https://peter88213.github.io/novelyst/) plugin providing a b
 
 If [novelyst](https://peter88213.github.io/novelyst/) is installed, the setup script auto-installs the *novelyst_matrix* plugin in the *novelyst* plugin directory.
 
-The plugin adds an "Edit" entry to the *novelyst* "Scene" menu. 
+The plugin adds a "Matrix" entry to the *novelyst* "Tools" menu. 
 
 
 ## Usage
 
-Start the matrix manager from the main menu: **File > Matrix**.
+Start the matrix manager from the main menu: **Tools > Matrix**.
 
 ### Exit 
 
