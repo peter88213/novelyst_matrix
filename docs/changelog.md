@@ -5,6 +5,20 @@
 ## Changelog
 
 
+### v0.3.5 Alpha
+
+- Refactor for speeding up.
+
+Compatibility: novelyst v4.0 API
+
+### v0.3.4 Alpha
+
+- Use a paned window.
+- Add a heading for each element type.
+- Only show "normal" scenes.
+
+Compatibility: novelyst v4.0 API
+
 ### v0.3.4 Alpha
 
 - Use a paned window.
