@@ -31,22 +31,30 @@ class Matrix:
         """
         self._novel = novel
         colorsBackground = (('white', 'gray95'), ('gray85', 'gray80'))
+        colorsArc = (('royalBlue1', 'royalBlue3'), ('royalBlue3', 'royalBlue4'))
         colorsCharacter = (('goldenrod1', 'goldenrod3'), ('goldenrod3', 'goldenrod4'))
         colorsLocation = (('coral1', 'coral3'), ('coral3', 'coral4'))
         colorsItem = (('aquamarine1', 'aquamarine3'), ('aquamarine3', 'aquamarine4'))
-        colorsArc = (('royalBlue1', 'royalBlue3'), ('royalBlue3', 'royalBlue4'))
+
+        matrixWindow = tk.PanedWindow(master, orient=tk.HORIZONTAL, sashwidth=5, sashrelief=tk.GROOVE)
+        matrixWindow.pack(anchor='w', fill=tk.BOTH)
+
         row = 0
         bgr = row % 2
         col = 0
         bgc = col % 2
         columns = []
-        columns.append(tk.Frame(master))
-        columns[col].pack(side=tk.LEFT)
-        tk.Label(columns[col], text=' ', bg=colorsBackground[bgr][bgc]).pack(fill=tk.X)
 
         #--- Scene title column.
+        columns.append(tk.Frame(matrixWindow))
+        columns[col].pack()
+        matrixWindow.add(columns[col])
+        tk.Label(columns[col], text=_('Scenes'), bg=colorsBackground[1][1]).pack(fill=tk.X)
+        tk.Label(columns[col], text=' ', bg=colorsBackground[bgr][bgc]).pack(fill=tk.X)
         for chId in novel.chapters:
             for scId in novel.chapters[chId].srtScenes:
+                if novel.scenes[scId].scType != 0:
+                    continue
                 row += 1
                 bgr = row % 2
                 tk.Label(columns[col],
@@ -62,6 +70,8 @@ class Matrix:
         self._scnArcs = {}
         for chId in novel.chapters:
             for scId in novel.chapters[chId].srtScenes:
+                if novel.scenes[scId].scType != 0:
+                    continue
                 self._arcNodes[scId] = {}
                 if novel.scenes[scId].scnArcs:
                     self._scnArcs[scId] = string_to_list(novel.scenes[scId].scnArcs)
@@ -70,115 +80,147 @@ class Matrix:
                             self._arcs.append(arc)
                 else:
                     self._scnArcs[scId] = []
-        for arc in self._arcs:
-            row = 0
-            bgr = row % 2
-            col += 1
-            bgc = col % 2
-            columns.append(tk.Frame(master))
-            columns[col].pack(side=tk.LEFT)
-            tk.Label(columns[col],
-                     text=arc,
-                     bg=colorsBackground[bgr][bgc],
-                     justify=tk.LEFT,
-                     anchor=tk.W
-                     ).pack(fill=tk.X)
-            for scId in self._scnArcs:
-                row += 1
+        if self._arcs:
+            arcWindow = tk.Frame(matrixWindow)
+            arcWindow.pack()
+            matrixWindow.add(arcWindow)
+            tk.Label(arcWindow, text=_('Arcs'), bg=colorsArc[0][0]).pack(fill=tk.X)
+            for arc in self._arcs:
+                row = 0
                 bgr = row % 2
-                node = Node(columns[col],
-                     colorFalse=colorsBackground[bgr][bgc],
-                     colorTrue=colorsArc[bgr][bgc]
-                     )
-                node.pack(fill=tk.X)
-                self._arcNodes[scId][arc] = node
+                col += 1
+                bgc = col % 2
+                columns.append(tk.Frame(arcWindow))
+                columns[col].pack(side=tk.LEFT)
+                tk.Label(columns[col],
+                         text=arc,
+                         bg=colorsBackground[bgr][bgc],
+                         justify=tk.LEFT,
+                         anchor=tk.W
+                         ).pack(fill=tk.X)
+                for scId in self._scnArcs:
+                    row += 1
+                    bgr = row % 2
+                    node = Node(columns[col],
+                         colorFalse=colorsBackground[bgr][bgc],
+                         colorTrue=colorsArc[bgr][bgc]
+                         )
+                    node.pack(fill=tk.X)
+                    self._arcNodes[scId][arc] = node
 
         #--- Character columns.
         self._characterNodes = {}
-        for chId in novel.chapters:
-            for scId in novel.chapters[chId].srtScenes:
-                self._characterNodes[scId] = {}
-        for crId in novel.characters:
-            row = 0
-            bgr = row % 2
-            col += 1
-            bgc = col % 2
-            columns.append(tk.Frame(master))
-            columns[col].pack(side=tk.LEFT)
-            tk.Label(columns[col],
-                     text=novel.characters[crId].title,
-                     bg=colorsBackground[bgr][bgc],
-                     justify=tk.LEFT,
-                     anchor=tk.W
-                     ).pack(fill=tk.X)
+        if novel.characters:
+            characterWindow = tk.Frame(matrixWindow)
+            characterWindow.pack()
+            matrixWindow.add(characterWindow)
+            tk.Label(characterWindow, text=_('Characters'), bg=colorsCharacter[0][0]).pack(fill=tk.X)
             for chId in novel.chapters:
                 for scId in novel.chapters[chId].srtScenes:
-                    row += 1
-                    bgr = row % 2
-                    node = Node(columns[col],
-                         colorFalse=colorsBackground[bgr][bgc],
-                         colorTrue=colorsCharacter[bgr][bgc]
-                         )
-                    node.pack(fill=tk.X)
-                    self._characterNodes[scId][crId] = node
+                    if novel.scenes[scId].scType != 0:
+                        continue
+                    self._characterNodes[scId] = {}
+            for crId in novel.characters:
+                row = 0
+                bgr = row % 2
+                col += 1
+                bgc = col % 2
+                columns.append(tk.Frame(characterWindow))
+                columns[col].pack(side=tk.LEFT)
+                tk.Label(columns[col],
+                         text=novel.characters[crId].title,
+                         bg=colorsBackground[bgr][bgc],
+                         justify=tk.LEFT,
+                         anchor=tk.W
+                         ).pack(fill=tk.X)
+                for chId in novel.chapters:
+                    for scId in novel.chapters[chId].srtScenes:
+                        if novel.scenes[scId].scType != 0:
+                            continue
+                        row += 1
+                        bgr = row % 2
+                        node = Node(columns[col],
+                             colorFalse=colorsBackground[bgr][bgc],
+                             colorTrue=colorsCharacter[bgr][bgc]
+                             )
+                        node.pack(fill=tk.X)
+                        self._characterNodes[scId][crId] = node
 
         #--- Location columns.
         self._locationNodes = {}
-        for chId in novel.chapters:
-            for scId in novel.chapters[chId].srtScenes:
-                self._locationNodes[scId] = {}
-        for lcId in novel.locations:
-            row = 0
-            bgr = row % 2
-            col += 1
-            bgc = col % 2
-            columns.append(tk.Frame(master))
-            columns[col].pack(side=tk.LEFT)
-            tk.Label(columns[col],
-                     text=novel.locations[lcId].title,
-                     bg=colorsBackground[bgr][bgc],
-                     justify=tk.LEFT,
-                     anchor=tk.W
-                     ).pack(fill=tk.X)
+        if novel.locations:
+            locationWindow = tk.Frame(matrixWindow)
+            locationWindow.pack()
+            matrixWindow.add(locationWindow)
+            tk.Label(locationWindow, text=_('Locations'), bg=colorsLocation[0][0]).pack(fill=tk.X)
             for chId in novel.chapters:
                 for scId in novel.chapters[chId].srtScenes:
-                    row += 1
-                    bgr = row % 2
-                    node = Node(columns[col],
-                         colorFalse=colorsBackground[bgr][bgc],
-                         colorTrue=colorsLocation[bgr][bgc]
-                         )
-                    node.pack(fill=tk.X)
-                    self._locationNodes[scId][lcId] = node
+                    if novel.scenes[scId].scType != 0:
+                        continue
+                    self._locationNodes[scId] = {}
+            for lcId in novel.locations:
+                row = 0
+                bgr = row % 2
+                col += 1
+                bgc = col % 2
+                columns.append(tk.Frame(locationWindow))
+                columns[col].pack(side=tk.LEFT)
+                tk.Label(columns[col],
+                         text=novel.locations[lcId].title,
+                         bg=colorsBackground[bgr][bgc],
+                         justify=tk.LEFT,
+                         anchor=tk.W
+                         ).pack(fill=tk.X)
+                for chId in novel.chapters:
+                    for scId in novel.chapters[chId].srtScenes:
+                        if novel.scenes[scId].scType != 0:
+                            continue
+                        row += 1
+                        bgr = row % 2
+                        node = Node(columns[col],
+                             colorFalse=colorsBackground[bgr][bgc],
+                             colorTrue=colorsLocation[bgr][bgc]
+                             )
+                        node.pack(fill=tk.X)
+                        self._locationNodes[scId][lcId] = node
 
         #--- Item columns.
         self._itemNodes = {}
-        for chId in novel.chapters:
-            for scId in novel.chapters[chId].srtScenes:
-                self._itemNodes[scId] = {}
-        for itId in novel.items:
-            row = 0
-            bgr = row % 2
-            col += 1
-            bgc = col % 2
-            columns.append(tk.Frame(master))
-            columns[col].pack(side=tk.LEFT)
-            tk.Label(columns[col],
-                     text=novel.items[itId].title,
-                     bg=colorsBackground[bgr][bgc],
-                     justify=tk.LEFT,
-                     anchor=tk.W
-                     ).pack(fill=tk.X)
+        if novel.items:
+            itemWindow = tk.Frame(matrixWindow)
+            itemWindow.pack()
+            matrixWindow.add(itemWindow)
+            tk.Label(itemWindow, text=_('Items'), bg=colorsItem[0][0]).pack(fill=tk.X)
             for chId in novel.chapters:
                 for scId in novel.chapters[chId].srtScenes:
-                    row += 1
-                    bgr = row % 2
-                    node = Node(columns[col],
-                         colorFalse=colorsBackground[bgr][bgc],
-                         colorTrue=colorsItem[bgr][bgc]
-                         )
-                    node.pack(fill=tk.X)
-                    self._itemNodes[scId][itId] = node
+                    if novel.scenes[scId].scType != 0:
+                        continue
+                    self._itemNodes[scId] = {}
+            for itId in novel.items:
+                row = 0
+                bgr = row % 2
+                col += 1
+                bgc = col % 2
+                columns.append(tk.Frame(itemWindow))
+                columns[col].pack(side=tk.LEFT)
+                tk.Label(columns[col],
+                         text=novel.items[itId].title,
+                         bg=colorsBackground[bgr][bgc],
+                         justify=tk.LEFT,
+                         anchor=tk.W
+                         ).pack(fill=tk.X)
+                for chId in novel.chapters:
+                    for scId in novel.chapters[chId].srtScenes:
+                        if novel.scenes[scId].scType != 0:
+                            continue
+                        row += 1
+                        bgr = row % 2
+                        node = Node(columns[col],
+                             colorFalse=colorsBackground[bgr][bgc],
+                             colorTrue=colorsItem[bgr][bgc]
+                             )
+                        node.pack(fill=tk.X)
+                        self._itemNodes[scId][itId] = node
 
     def set_nodes(self):
         """Loop through all nodes, setting states."""

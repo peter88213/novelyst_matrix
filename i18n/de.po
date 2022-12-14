@@ -3,9 +3,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.2\n"
-"POT-Creation-Date: 2022-12-13 21:24:02\n"
-"PO-Revision-Date: 2022-12-13 21:24:03\n"
+"Project-Id-Version: 0.3.4\n"
+"POT-Creation-Date: 2022-12-14 15:22:02\n"
+"PO-Revision-Date: 2022-12-14 15:22:02\n"
 "Last-Translator: Peter Triesberger\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,21 @@ msgstr ""
 msgid "Apply changes"
 msgstr "Änderungen übernehmen"
 
+msgid "Arcs"
+msgstr "Bögen"
+
+msgid "Characters"
+msgstr "Figuren"
+
+msgid "Items"
+msgstr "Gegenstände"
+
+msgid "Locations"
+msgstr "Schauplätze"
+
 msgid "Matrix"
 msgstr "Matrix"
+
+msgid "Scenes"
+msgstr "Abschnitte"
 

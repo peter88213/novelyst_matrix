@@ -5,12 +5,24 @@
 ## Changelog
 
 
+### v0.3.4 Alpha
+
+- Use a paned window.
+- Add a heading for each element type.
+- Only show "normal" scenes.
+
+#### To do:
+
+- Add scrollbars.
+
+Compatibility: novelyst v4.0 API
+
 ### v0.3.2 Alpha
 
 - Tune the colors.
 - Close the window when the project is closed.
 
-#### Todo:
+#### To do:
 
 - Split the main window into element sections.
 - Add scrollbars.
