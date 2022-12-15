@@ -12,7 +12,7 @@ from nvmatrixlib.nvmatrix_globals import *
 APPLICATION = 'Matrix'
 
 
-class MatrixTk(MainTk):
+class TableManager(MainTk):
 
     def __init__(self):
         kwargs = {
@@ -35,7 +35,7 @@ class MatrixTk(MainTk):
 
 
 if __name__ == '__main__':
-    ui = MatrixTk()
+    ui = TableManager()
     ui.open_project(sys.argv[1])
     ui.start()
 

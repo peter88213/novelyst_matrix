@@ -5,6 +5,7 @@
 	<projects>
 		<project>novelyst</project>
 		<project>PyWriter</project>
+		<project>yw-table</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

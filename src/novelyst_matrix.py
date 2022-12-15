@@ -6,7 +6,7 @@ For further information see https://github.com/peter88213/novelyst_matrix
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 from nvmatrixlib.nvmatrix_globals import *
-from nvmatrixlib.matrix_tk import MatrixTk
+from nvmatrixlib.table_manager import TableManager
 
 
 class Plugin:
@@ -46,7 +46,7 @@ class Plugin:
         __, x, y = self._ui.root.geometry().split('+')
         offset = 100
         windowGeometry = f'+{int(x)+offset}+{int(y)+offset}'
-        self._matrixViewer = MatrixTk(self._ui, windowGeometry)
+        self._matrixViewer = TableManager(self._ui, windowGeometry)
 
     def disable_menu(self):
         """Disable menu entries when no project is open."""

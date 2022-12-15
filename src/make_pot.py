@@ -9,7 +9,7 @@ import build_novelyst_matrix as build_plugin
 sys.path.insert(0, f'{os.getcwd()}/../../PyWriter/src')
 import pgettext
 
-APP = 'aeon2yw'
+APP = 'novelyst_matrix'
 POT_FILE = '../i18n/messages.pot'
 
 

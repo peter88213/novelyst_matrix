@@ -16,8 +16,6 @@ __all__ = ['Error',
            'CURRENT_LANGUAGE',
            'APPLICATION',
            'PLUGIN',
-           'SERIES_PREFIX',
-           'BOOK_PREFIX',
            ]
 
 
@@ -38,8 +36,6 @@ except:
 
 APPLICATION = _('Matrix')
 PLUGIN = f'{APPLICATION} plugin v@release'
-SERIES_PREFIX = 'sr'
-BOOK_PREFIX = 'bk'
 
 
 def norm_path(path):

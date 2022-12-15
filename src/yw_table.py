@@ -1,4 +1,4 @@
-"""A relationship matrix for yw7 files
+"""A relationship table for yw7 files
 
 Requires Python 3.6+
 Copyright (c) 2022 Peter Triesberger
@@ -9,16 +9,15 @@ import sys
 import tkinter as tk
 from tkinter import messagebox
 from pywriter.ui.main_tk import MainTk
-from novelyst_matrix import Plugin
 from nvmatrixlib.nvmatrix_globals import *
-from nvmatrixlib.matrix import Matrix
-from nvmatrixlib.node import Node
-from nvmatrixlib.scrolled_window import VerticalScrolledFrame
+from ywtablelib.relations_table import RelationsTable
+from ywtablelib.node import Node
+from ywtablelib.scrolled_window import ScrolledWindow
 
-APPLICATION = 'Relationship Matrix'
+APPLICATION = 'Relationship Table'
 
 
-class ywMatrix(MainTk):
+class TableManager(MainTk):
 
     def __init__(self):
         kwargs = {
@@ -33,19 +32,18 @@ class ywMatrix(MainTk):
 
     def open_project(self, fileName):
         super().open_project(fileName)
-        #--- The Matrix.
+        #--- The Relationship Table.
         Node.isModified = False
         if self.novel is not None:
-            self._matrixWindow = VerticalScrolledFrame(self.mainWindow)
-            self._matrixWindow.pack(fill=tk.BOTH)
-            self._matrix = Matrix(self._matrixWindow.interior, self.novel)
-            self._matrixWindow.create()
-            self._matrix.set_nodes()
+            self._tableWindow = ScrolledWindow(self.mainWindow)
+            self._relationsTable = RelationsTable(self._tableWindow.display, self.novel)
+            self._tableWindow.pack(fill=tk.BOTH, expand=True)
+            self._relationsTable.set_nodes()
 
     def close_project(self, event=None):
         self._apply_changes()
-        self._matrix = None
-        self._matrixWindow.destroy()
+        self._relationsTable = None
+        self._tableWindow.destroy()
         super().close_project()
 
     def on_quit(self, event=None):
@@ -56,13 +54,13 @@ class ywMatrix(MainTk):
         #--- Apply changes.
         if Node.isModified:
             if messagebox.askyesno(PLUGIN, f"{_('Apply changes')}?"):
-                self._matrix.get_nodes()
+                self._relationsTable.get_nodes()
                 self.prjFile.write()
             Node.isModified = False
 
 
 def main():
-    ui = ywMatrix()
+    ui = TableManager()
     try:
         ui.open_project(sys.argv[1])
     except IndexError:

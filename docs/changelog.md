@@ -5,6 +5,13 @@
 ## Changelog
 
 
+### v0.4.0 Alpha
+
+- Add scrollbars.
+- Reorganize the project.
+
+Compatibility: novelyst v4.0 API
+
 ### v0.3.5 Alpha
 
 - Refactor for speeding up.

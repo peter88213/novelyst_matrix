@@ -1,4 +1,4 @@
-"""Provide a tkinter widget for project matrix management.
+"""Provide a tkinter widget for relationship table management.
 
 Copyright (c) 2022 Peter Triesberger
 For further information see https://github.com/peter88213/novelyst_matrix
@@ -8,8 +8,9 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
 from nvmatrixlib.nvmatrix_globals import *
-from nvmatrixlib.matrix import Matrix
-from nvmatrixlib.node import Node
+from ywtablelib.relations_table import RelationsTable
+from ywtablelib.node import Node
+from ywtablelib.scrolled_window import ScrolledWindow
 
 SETTINGS = dict(
     last_open='',
@@ -18,7 +19,7 @@ SETTINGS = dict(
 OPTIONS = {}
 
 
-class MatrixTk(tk.Toplevel):
+class TableManager(tk.Toplevel):
     _KEY_QUIT_PROGRAM = ('<Control-q>', 'Ctrl-Q')
 
     def __init__(self, ui, position):
@@ -39,20 +40,20 @@ class MatrixTk(tk.Toplevel):
         self.config(menu=self.mainMenu)
 
         #--- Main window.
-        self.mainWindow = ttk.Frame(self)
-        self.mainWindow.pack(fill=tk.BOTH, padx=2, pady=2)
+        self.mainWindow = ScrolledWindow(self)
 
-        #--- The Matrix.
+        #--- The Relations Table.
         Node.isModified = False
         if self._ui.novel is not None:
-            self._matrix = Matrix(self.mainWindow, self._ui.novel)
-            self._matrix.set_nodes()
+            self._relationsTable = RelationsTable(self.mainWindow.display, self._ui.novel)
+            self._relationsTable.set_nodes()
         self.isOpen = True
+        self.mainWindow.pack(fill=tk.BOTH, expand=True, padx=2, pady=2)
 
     def _apply_changes(self):
         if Node.isModified:
             if messagebox.askyesno(PLUGIN, f"{_('Apply changes')}?"):
-                self._matrix.get_nodes()
+                self._relationsTable.get_nodes()
                 self._ui.isModified = True
                 self._ui.refresh_tree()
 
