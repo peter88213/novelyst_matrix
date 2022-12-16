@@ -5,6 +5,13 @@
 ## Changelog
 
 
+### v0.5.0 Alpha
+
+- Remove panes for better scrolling.
+
+Based on yw-table v0.3.0
+Compatibility: novelyst v4.0 API
+
 ### v0.4.0 Alpha
 
 - Add scrollbars.
