@@ -45,7 +45,7 @@ class TableManager(tk.Toplevel):
         #--- The Relations Table.
         Node.isModified = False
         if self._ui.novel is not None:
-            self._relationsTable = RelationsTable(self.mainWindow.display, self._ui.novel)
+            self._relationsTable = RelationsTable(self.mainWindow, self._ui.novel)
             self._relationsTable.set_nodes()
         self.isOpen = True
         self.mainWindow.pack(fill=tk.BOTH, expand=True, padx=2, pady=2)
