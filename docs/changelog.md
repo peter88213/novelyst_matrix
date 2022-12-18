@@ -5,6 +5,13 @@
 ## Changelog
 
 
+### v0.5.1 Alpha
+
+- Add element types to the table bottom.
+
+Based on yw-table v0.3.1
+Compatibility: novelyst v4.0 API
+
 ### v0.5.0 Alpha
 
 - Remove panes for better scrolling.
