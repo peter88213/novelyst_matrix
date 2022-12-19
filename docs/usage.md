@@ -13,9 +13,21 @@ The plugin adds a "Matrix" entry to the *novelyst* "Tools" menu.
 
 ## Usage
 
+### Starting the program
+
 - Start the matrix manager from the main menu: **Tools > Matrix**.
-- Use the mouse wheel for vertical scrolling, and <Shift>-mouse wheel for horizontal scrolling.    
-- Add/Remove relationships by klicking on the nodes.
+
+### Operation
+
+#### Scrolling
+
+- Use the mouse wheel for vertical scrolling.
+- Use the mouse wheel with the `Shift` key pressed for horizontal scrolling.    
+
+#### Add/remove relationships
+
+- Add/Remove relationships by klicking on the nodes with the `Alt` key pressed.
+
 
 ### Exit 
 
