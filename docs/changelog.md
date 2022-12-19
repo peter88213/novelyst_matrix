@@ -5,6 +5,13 @@
 ## Changelog
 
 
+### v0.7.2 Alpha
+
+- Fix internationalization.
+
+Based on yw-table v0.5.1
+Compatibility: novelyst v4.0 API
+
 ### v0.7.1 Alpha
 
 - Adjust colors.

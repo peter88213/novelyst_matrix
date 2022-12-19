@@ -5,18 +5,11 @@ For further information see https://github.com/peter88213/novelyst_matrix
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 import tkinter as tk
-from tkinter import ttk
 from tkinter import messagebox
-from nvmatrixlib.nvmatrix_globals import *
+from ywtablelib.ywtable_globals import *
 from ywtablelib.relations_table import RelationsTable
 from ywtablelib.node import Node
 from ywtablelib.scrolled_window import ScrolledWindow
-
-SETTINGS = dict(
-    last_open='',
-    tree_width='300',
-)
-OPTIONS = {}
 
 
 class TableManager(tk.Toplevel):
@@ -26,7 +19,6 @@ class TableManager(tk.Toplevel):
         self._ui = ui
         super().__init__()
 
-        self.title(PLUGIN)
         self._statusText = ''
 
         self.geometry(position)
@@ -52,7 +44,7 @@ class TableManager(tk.Toplevel):
 
     def _apply_changes(self):
         if Node.isModified:
-            if messagebox.askyesno(PLUGIN, f"{_('Apply changes')}?"):
+            if messagebox.askyesno(self.title(), f"{_('Apply changes')}?"):
                 self._relationsTable.get_nodes()
                 self._ui.isModified = True
                 self._ui.refresh_tree()

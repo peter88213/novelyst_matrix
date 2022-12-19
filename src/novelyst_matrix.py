@@ -5,8 +5,26 @@ Copyright (c) 2022 Peter Triesberger
 For further information see https://github.com/peter88213/novelyst_matrix
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
+import sys
+import os
+import gettext
+import locale
 from nvmatrixlib.nvmatrix_globals import *
 from nvmatrixlib.table_manager import TableManager
+
+# Initialize localization.
+LOCALE_PATH = f'{os.path.dirname(sys.argv[0])}/locale/'
+CURRENT_LANGUAGE = locale.getlocale()[0][:2]
+try:
+    t = gettext.translation('novelyst_matrix', LOCALE_PATH, languages=[CURRENT_LANGUAGE])
+    _ = t.gettext
+except:
+
+    def _(message):
+        return message
+
+APPLICATION = _('Matrix')
+PLUGIN = f'{APPLICATION} plugin v@release'
 
 
 class Plugin:
@@ -20,7 +38,7 @@ class Plugin:
     """
     VERSION = '@release'
     NOVELYST_API = '4.0'
-    DESCRIPTION = 'A relationship matrix'
+    DESCRIPTION = 'A scene relationship table'
     URL = 'https://peter88213.github.io/novelyst_matrix'
 
     def install(self, ui):
@@ -47,6 +65,7 @@ class Plugin:
         offset = 100
         windowGeometry = f'+{int(x)+offset}+{int(y)+offset}'
         self._matrixViewer = TableManager(self._ui, windowGeometry)
+        self._matrixViewer.title(PLUGIN)
 
     def disable_menu(self):
         """Disable menu entries when no project is open."""
