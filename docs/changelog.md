@@ -5,6 +5,13 @@
 ## Changelog
 
 
+### v0.6.0 Alpha
+
+- Add mouse wheel support.
+
+Based on yw-table v0.4.0
+Compatibility: novelyst v4.0 API
+
 ### v0.5.1 Alpha
 
 - Add element types to the table bottom.
