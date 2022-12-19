@@ -5,6 +5,13 @@
 ## Changelog
 
 
+### v0.7.0 Alpha
+
+- Replace scrollbars by mouse wheel operation.
+
+Based on yw-table v0.5.0
+Compatibility: novelyst v4.0 API
+
 ### v0.6.0 Alpha
 
 - Add mouse wheel support.
