@@ -27,11 +27,15 @@ class TableManager(MainTk):
         self.toolsMenu = tk.Menu(self.mainMenu, tearoff=0)
         self.mainMenu.add_cascade(label='Tools', menu=self.toolsMenu)
 
-        plugin = Plugin()
-        plugin.install(self)
+        self.plugin = Plugin()
+        self.plugin.install(self)
 
     def refresh_tree(self):
         """Test dummy."""
+
+    def on_quit(self):
+        self.plugin.on_quit()
+        super().on_quit()
 
 
 if __name__ == '__main__':

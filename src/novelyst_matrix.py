@@ -9,8 +9,16 @@ import sys
 import os
 import gettext
 import locale
+from pathlib import Path
 from nvmatrixlib.nvmatrix_globals import *
 from nvmatrixlib.table_manager import TableManager
+from nvmatrixlib.configuration import Configuration
+
+SETTINGS = dict(
+        window_geometry='600x800',
+        )
+OPTIONS = dict(
+        )
 
 # Initialize localization.
 LOCALE_PATH = f'{os.path.dirname(sys.argv[0])}/locale/'
@@ -50,6 +58,19 @@ class Plugin:
         self._ui = ui
         self._matrixViewer = None
 
+        #--- Load configuration.
+        try:
+            homeDir = str(Path.home()).replace('\\', '/')
+            configDir = f'{homeDir}/.pywriter/novelyst/config'
+        except:
+            configDir = '.'
+        self.iniFile = f'{configDir}/matrix.ini'
+        self.configuration = Configuration(SETTINGS, OPTIONS)
+        self.configuration.read(self.iniFile)
+        self.kwargs = {}
+        self.kwargs.update(self.configuration.settings)
+        self.kwargs.update(self.configuration.options)
+
         # Create a submenu
         self._ui.toolsMenu.insert_command(0, label=APPLICATION, command=self._start_ui)
         self._ui.toolsMenu.entryconfig(APPLICATION, state='normal')
@@ -61,10 +82,7 @@ class Plugin:
                 self._matrixViewer.focus()
                 return
 
-        __, x, y = self._ui.root.geometry().split('+')
-        offset = 100
-        windowGeometry = f'+{int(x)+offset}+{int(y)+offset}'
-        self._matrixViewer = TableManager(self._ui, windowGeometry)
+        self._matrixViewer = TableManager(self, self._ui, self.kwargs['window_geometry'])
         self._matrixViewer.title(PLUGIN)
 
     def disable_menu(self):
@@ -80,7 +98,15 @@ class Plugin:
         self.on_quit()
 
     def on_quit(self):
-        """Apply changes and close the window."""
+        """Actions to be performed when novelyst is closed."""
         if self._matrixViewer:
             if self._matrixViewer.isOpen:
                 self._matrixViewer.on_quit()
+
+        #--- Save project specific configuration
+        for keyword in self.kwargs:
+            if keyword in self.configuration.options:
+                self.configuration.options[keyword] = self.kwargs[keyword]
+            elif keyword in self.configuration.settings:
+                self.configuration.settings[keyword] = self.kwargs[keyword]
+        self.configuration.write(self.iniFile)

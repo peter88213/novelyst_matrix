@@ -15,8 +15,9 @@ from ywtablelib.scrolled_window import ScrolledWindow
 class TableManager(tk.Toplevel):
     _KEY_QUIT_PROGRAM = ('<Control-q>', 'Ctrl-Q')
 
-    def __init__(self, ui, position):
+    def __init__(self, plugin, ui, position):
         self._ui = ui
+        self._plugin = plugin
         super().__init__()
 
         self._statusText = ''
@@ -51,6 +52,7 @@ class TableManager(tk.Toplevel):
 
     def on_quit(self, event=None):
         self._apply_changes()
+        self._plugin.kwargs['window_geometry'] = self.winfo_geometry()
         self.destroy()
         self.isOpen = False
 
