@@ -9,7 +9,7 @@
 
 - Save window size and position in a configuration file.
 - Fix a bug where horizontal scrolling doesn't work with Linux.
-- Toggle with <Ctrl>-Mouseclick. This is needed for Operation under XFCE.
+- Toggle with `Ctrl` + Mouseclick. This is needed for Operation under XFCE.
 - Fix column width. 
 - Add window icon.
 
@@ -18,7 +18,7 @@ Compatibility: novelyst v4.0 API
 
 ### v0.8.0 Alpha
 
-- Toggle with <Alt>-Mouseclick.
+- Toggle with `Alt` + Mouseclick.
 
 Based on yw-table v0.6.0
 Compatibility: novelyst v4.0 API
