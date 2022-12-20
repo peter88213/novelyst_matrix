@@ -7,12 +7,15 @@ For more information, see the [project homepage](https://peter88213.github.io/no
 
 ## Development
 
-*novelyst_matrix* depends on the [yw-table](https://github.com/peter88213/yw-table) library which must be present in your file system. It is organized as an Eclipse PyDev project. The official release branch on GitHub is *main*.
+*novelyst_matrix* depends on the [pywriter](https://github.com/peter88213/PyWriter) and the [yw-table](https://github.com/peter88213/yw-table) libraries which must be present in your file system. It is organized as an Eclipse PyDev project. The official release branch on GitHub is *main*.
 
 ### Mandatory directory structure for building the application script
 
 ```
 .
+├── PyWriter/
+│   └── src/
+│       └── pywriter/
 ├── yw-table/
 │   └── src/
 │      └── ywtablelib/
@@ -30,7 +33,7 @@ For more information, see the [project homepage](https://peter88213.github.io/no
 
 ### Development tools
 
-- [Python](https://python.org) version 3.9
+- [Python](https://python.org) version 3.11
 - [Eclipse IDE](https://eclipse.org) with [PyDev](https://pydev.org) and [EGit](https://www.eclipse.org/egit/)
 - [Apache Ant](https://ant.apache.org/) for building the application script
 
