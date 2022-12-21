@@ -5,6 +5,13 @@
 ## Changelog
 
 
+### v0.10.0 Alpha
+
+- Change the node design.
+
+Based on yw-table v0.9.0
+Compatibility: novelyst v4.0 API
+
 ### v0.9.0 Alpha
 
 - Save window size and position in a configuration file.
