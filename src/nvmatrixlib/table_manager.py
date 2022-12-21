@@ -9,7 +9,7 @@ from tkinter import messagebox
 from ywtablelib.ywtable_globals import *
 from ywtablelib.relations_table import RelationsTable
 from ywtablelib.node import Node
-from ywtablelib.scrolled_window import ScrolledWindow
+from ywtablelib.table_frame import TableFrame
 
 
 class TableManager(tk.Toplevel):
@@ -33,7 +33,7 @@ class TableManager(tk.Toplevel):
         self.config(menu=self.mainMenu)
 
         #--- Main window.
-        self.mainWindow = ScrolledWindow(self)
+        self.mainWindow = TableFrame(self)
 
         #--- The Relations Table.
         Node.isModified = False

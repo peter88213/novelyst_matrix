@@ -19,14 +19,14 @@ The plugin adds a "Matrix" entry to the *novelyst* "Tools" menu.
 
 ### Operation
 
-#### Scrolling
+#### Mouse wheel
 
 - Use the mouse wheel for vertical scrolling.
 - Use the mouse wheel with the `Shift` key pressed for horizontal scrolling.    
 
 #### Add/remove relationships
 
-- Add/Remove relationships by klicking on the nodes with the `Alt` key pressed.
+- Add/Remove relationships by klicking on the nodes with the `Ctrl` key pressed.
 
 
 ### Exit 

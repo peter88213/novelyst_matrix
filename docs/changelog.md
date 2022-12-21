@@ -5,6 +5,14 @@
 ## Changelog
 
 
+### v0.11.0 Beta
+
+- Make the scrollbars work.
+- Stop scrolling above the canvas window.
+
+Based on yw-table v0.10.0
+Compatibility: novelyst v4.0 API
+
 ### v0.10.1 Alpha
 
 - Widen narrow columns.
