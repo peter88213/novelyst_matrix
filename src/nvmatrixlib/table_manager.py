@@ -9,7 +9,7 @@ from tkinter import messagebox
 from ywtablelib.ywtable_globals import *
 from ywtablelib.relations_table import RelationsTable
 from ywtablelib.node import Node
-from ywtablelib.table_frame import TableFrame
+from ywtablelib.widgets.table_frame import TableFrame
 
 
 class TableManager(tk.Toplevel):

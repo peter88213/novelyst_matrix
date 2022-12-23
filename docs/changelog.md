@@ -5,6 +5,13 @@
 ## Changelog
 
 
+### v0.11.1 Beta
+
+- Adapt to the yw-table v0.11 API.
+
+Based on yw-table v0.11.0
+Compatibility: novelyst v4.0 API
+
 ### v0.11.0 Beta
 
 - Make the scrollbars work.
