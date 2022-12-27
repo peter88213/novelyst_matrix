@@ -16,6 +16,18 @@ from nvmatrixlib.configuration import Configuration
 
 SETTINGS = dict(
         window_geometry='600x800',
+        color_bg_00='gray80',
+        color_bg_01='gray85',
+        color_bg_10='gray95',
+        color_bg_11='white',
+        color_arc_heading='royalblue1',
+        color_arc_node='royalblue3',
+        color_character_heading='goldenrod1',
+        color_character_node='goldenrod3',
+        color_location_heading='coral1',
+        color_location_node='coral3',
+        color_item_heading='aquamarine1',
+        color_item_node='aquamarine3',
         )
 OPTIONS = dict(
         )
@@ -82,7 +94,7 @@ class Plugin:
                 self._matrixViewer.focus()
                 return
 
-        self._matrixViewer = TableManager(self, self._ui, self.kwargs['window_geometry'])
+        self._matrixViewer = TableManager(self, self._ui, **self.kwargs)
         self._matrixViewer.title(PLUGIN)
 
     def disable_menu(self):

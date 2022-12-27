@@ -15,14 +15,15 @@ from ywtablelib.widgets.table_frame import TableFrame
 class TableManager(tk.Toplevel):
     _KEY_QUIT_PROGRAM = ('<Control-q>', 'Ctrl-Q')
 
-    def __init__(self, plugin, ui, position):
+    def __init__(self, plugin, ui, **kwargs):
         self._ui = ui
         self._plugin = plugin
+        self._kwargs = kwargs
         super().__init__()
 
         self._statusText = ''
 
-        self.geometry(position)
+        self.geometry(kwargs['window_geometry'])
         self.lift()
         self.focus()
         self.protocol("WM_DELETE_WINDOW", self.on_quit)
@@ -38,7 +39,7 @@ class TableManager(tk.Toplevel):
         #--- The Relations Table.
         Node.isModified = False
         if self._ui.novel is not None:
-            self._relationsTable = RelationsTable(self.mainWindow, self._ui.novel)
+            self._relationsTable = RelationsTable(self.mainWindow, self._ui.novel, **self._kwargs)
             self._relationsTable.set_nodes()
         self.isOpen = True
         self.mainWindow.pack(fill=tk.BOTH, expand=True, padx=2, pady=2)
