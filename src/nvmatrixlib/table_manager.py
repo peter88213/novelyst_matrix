@@ -17,6 +17,7 @@ class TableManager(tk.Toplevel):
 
     def __init__(self, plugin, ui, **kwargs):
         self._ui = ui
+        self._ui.refresh_tree()
         self._plugin = plugin
         self._kwargs = kwargs
         super().__init__()

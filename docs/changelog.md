@@ -5,6 +5,14 @@
 ## Changelog
 
 
+### v0.13.1 Beta
+
+- Fix a regression from v0.13.0 where arc changes are not written back correctly, if a scene is assigned to the "subplot".
+- Refresh the tree before building the table to make sure no changes are lost.
+
+Based on yw-table v0.13.1
+Compatibility: novelyst v4.0 API
+
 ### v0.13.0 Beta
 
 - Use "Subplot" as an arc, if at least one scene is assigned, and there are no other arcs.
