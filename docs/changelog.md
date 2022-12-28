@@ -5,6 +5,13 @@
 ## Changelog
 
 
+### v0.13.0 Beta
+
+- Use "Subplot" as an arc, if at least one scene is assigned, and there are no other arcs.
+
+Based on yw-table v0.13.0
+Compatibility: novelyst v4.0 API
+
 ### v0.12.0 Beta
 
 - Make colors customizable.
