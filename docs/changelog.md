@@ -5,6 +5,13 @@
 ## Changelog
 
 
+### v0.13.2 Beta
+
+- Iterate sorted lists instead of dictionaries.
+
+Based on yw-table v0.14.2
+Compatibility: novelyst v4.0 API
+
 ### v0.13.1 Beta
 
 - Fix a regression from v0.13.0 where arc changes are not written back correctly, if a scene is assigned to the "subplot".
