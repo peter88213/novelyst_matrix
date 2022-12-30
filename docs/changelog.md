@@ -5,6 +5,13 @@
 ## Changelog
 
 
+### v0.14.0 Beta
+
+- Refactor.
+- Restructure the project.
+
+Compatibility: novelyst v4.0 API
+
 ### v0.13.2 Beta
 
 - Iterate sorted lists instead of dictionaries.

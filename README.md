@@ -7,7 +7,7 @@ For more information, see the [project homepage](https://peter88213.github.io/no
 
 ## Development
 
-*novelyst_matrix* depends on the [pywriter](https://github.com/peter88213/PyWriter) and the [yw-table](https://github.com/peter88213/yw-table) libraries which must be present in your file system. It is organized as an Eclipse PyDev project. The official release branch on GitHub is *main*.
+*novelyst_matrix* depends on the [pywriter](https://github.com/peter88213/PyWriter) library which must be present in your file system. It is organized as an Eclipse PyDev project. The official release branch on GitHub is *main*.
 
 ### Mandatory directory structure for building the application script
 
@@ -16,9 +16,6 @@ For more information, see the [project homepage](https://peter88213.github.io/no
 ├── PyWriter/
 │   └── src/
 │       └── pywriter/
-├── yw-table/
-│   └── src/
-│      └── ywtablelib/
 └── novelyst_matrix/
     ├── src/
     ├── test/
@@ -43,3 +40,5 @@ For more information, see the [project homepage](https://peter88213.github.io/no
 This is Open Source software, and the *novelyst_matrix* plugin is licensed under GPLv3. See the
 [GNU General Public License website](https://www.gnu.org/licenses/gpl-3.0.en.html) for more
 details, or consult the [LICENSE](https://github.com/peter88213/novelyst_matrix/blob/main/LICENSE) file.
+
+The modules in the *widgets* package are published under the [MIT License](http://www.opensource.org/licenses/mit-license.php). 
