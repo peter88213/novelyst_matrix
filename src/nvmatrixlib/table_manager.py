@@ -6,7 +6,7 @@ License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 import tkinter as tk
 from tkinter import messagebox
-from nvmatrixlib.nvmatrix_globals import *
+from pywriter.pywriter_globals import *
 from nvmatrixlib.relations_table import RelationsTable
 from nvmatrixlib.node import Node
 from nvmatrixlib.widgets.table_frame import TableFrame

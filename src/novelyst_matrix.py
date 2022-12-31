@@ -10,9 +10,9 @@ import os
 import gettext
 import locale
 from pathlib import Path
-from nvmatrixlib.nvmatrix_globals import *
+from pywriter.pywriter_globals import *
+from pywriter.config.configuration import Configuration
 from nvmatrixlib.table_manager import TableManager
-from nvmatrixlib.configuration import Configuration
 
 SETTINGS = dict(
         window_geometry='600x800',

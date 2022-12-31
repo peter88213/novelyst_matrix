@@ -5,7 +5,7 @@ For further information see https://github.com/peter88213/novelyst_matrix
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 import tkinter as tk
-from nvmatrixlib.nvmatrix_globals import *
+from pywriter.pywriter_globals import *
 from nvmatrixlib.node import Node
 
 

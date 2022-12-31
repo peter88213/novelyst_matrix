@@ -22,6 +22,7 @@ TARGET_FILE = f'{BUILD}novelyst_matrix.py'
 
 def main():
     inliner.run(SOURCE_FILE, TARGET_FILE, 'nvmatrixlib', '../../novelyst_matrix/src/')
+    inliner.run(TARGET_FILE, TARGET_FILE, 'pywriter', '../../PyWriter/src/', copyPyWriter=False)
     print('Done.')
 
 
