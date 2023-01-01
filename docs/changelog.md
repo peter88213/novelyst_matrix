@@ -5,6 +5,13 @@
 ## Changelog
 
 
+### v0.14.1 Beta
+
+- Make it run on old Windows versions.
+
+Based on PyWriter v10.0.1
+Compatibility: novelyst v4.0 API
+
 ### v0.14.0 Beta
 
 - Refactor.

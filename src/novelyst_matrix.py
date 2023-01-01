@@ -34,7 +34,11 @@ OPTIONS = dict(
 
 # Initialize localization.
 LOCALE_PATH = f'{os.path.dirname(sys.argv[0])}/locale/'
-CURRENT_LANGUAGE = locale.getlocale()[0][:2]
+try:
+    CURRENT_LANGUAGE = locale.getlocale()[0][:2]
+except:
+    # Fallback for old Windows versions.
+    CURRENT_LANGUAGE = locale.getdefaultlocale()[0][:2]
 try:
     t = gettext.translation('novelyst_matrix', LOCALE_PATH, languages=[CURRENT_LANGUAGE])
     _ = t.gettext
