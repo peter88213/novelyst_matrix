@@ -26,6 +26,8 @@ class TableManager(MainTk):
         # Tools
         self.toolsMenu = tk.Menu(self.mainMenu, tearoff=0)
         self.mainMenu.add_cascade(label='Tools', menu=self.toolsMenu)
+        self.helpMenu = tk.Menu(self.mainMenu, tearoff=0)
+        self.mainMenu.add_cascade(label=_('Help'), menu=self.helpMenu)
 
         self.plugin = Plugin()
         self.plugin.install(self)

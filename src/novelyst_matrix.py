@@ -9,6 +9,7 @@ import sys
 import os
 import gettext
 import locale
+import webbrowser
 from pathlib import Path
 from pywriter.pywriter_globals import *
 from pywriter.config.configuration import Configuration
@@ -64,6 +65,7 @@ class Plugin:
     NOVELYST_API = '4.0'
     DESCRIPTION = 'A scene relationship table'
     URL = 'https://peter88213.github.io/novelyst_matrix'
+    _HELP_URL = 'https://peter88213.github.io/novelyst_matrix/usage'
 
     def install(self, ui):
         """Add a submenu to the 'Tools' menu.
@@ -87,9 +89,12 @@ class Plugin:
         self.kwargs.update(self.configuration.settings)
         self.kwargs.update(self.configuration.options)
 
-        # Create a submenu
+        # Create an entry to the Tools menu.
         self._ui.toolsMenu.insert_command(0, label=APPLICATION, command=self._start_ui)
-        self._ui.toolsMenu.entryconfig(APPLICATION, state='normal')
+        self._ui.toolsMenu.entryconfig(APPLICATION, state='disabled')
+
+        # Add an entry to the Help menu.
+        self._ui.helpMenu.add_command(label=_('Matrix plugin Online help'), command=lambda: webbrowser.open(self._HELP_URL))
 
     def _start_ui(self):
         if self._matrixViewer:
