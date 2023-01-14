@@ -5,6 +5,15 @@
 ## Changelog
 
 
+### v0.16.0 Beta
+
+- Show all arcs defined with novelyst v4.4+
+
+This is backwards compatible with novelyst 4.3-.
+
+Based on PyWriter v10.0.1
+Compatibility: novelyst v4.0 API
+
 ### v0.15.0 Beta
 
 - Provide online help.

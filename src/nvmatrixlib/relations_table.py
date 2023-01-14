@@ -58,25 +58,33 @@ class RelationsTable:
         self._characterNodes = {}
         self._locationNodes = {}
         self._itemNodes = {}
+        self._arcs = []
         for chId in self._novel.srtChapters:
-            for scId in self._novel.chapters[chId].srtScenes:
-                bgr = row % 2
-                if self._novel.scenes[scId].scType != 0:
-                    continue
+            #--- Find arcs.
+            if self._novel.chapters[chId].chType == 2:
+                arc = self._novel.chapters[chId].kwVar.get('Field_ArcDefinition', None)
+                if arc:
+                    if not arc in self._arcs:
+                        self._arcs.append(arc)
+            elif self._novel.chapters[chId].chType == 0:
+                for scId in self._novel.chapters[chId].srtScenes:
+                    bgr = row % 2
+                    if self._novel.scenes[scId].scType != 0:
+                        continue
 
-                #--- Initialize matrix scene row dictionaries.
-                self._characterNodes[scId] = {}
-                self._locationNodes[scId] = {}
-                self._itemNodes[scId] = {}
-                self._arcNodes[scId] = {}
+                    #--- Initialize matrix scene row dictionaries.
+                    self._characterNodes[scId] = {}
+                    self._locationNodes[scId] = {}
+                    self._itemNodes[scId] = {}
+                    self._arcNodes[scId] = {}
 
-                tk.Label(master.rowTitles,
-                         text=self._novel.scenes[scId].title,
-                         bg=colorsBackground[bgr][1],
-                         justify=tk.LEFT,
-                         anchor=tk.W
-                         ).pack(fill=tk.X)
-                row += 1
+                    tk.Label(master.rowTitles,
+                             text=self._novel.scenes[scId].title,
+                             bg=colorsBackground[bgr][1],
+                             justify=tk.LEFT,
+                             anchor=tk.W
+                             ).pack(fill=tk.X)
+                    row += 1
         bgr = row % 2
         tk.Label(master.rowTitles,
                          text=' ',
@@ -88,13 +96,16 @@ class RelationsTable:
 
         #--- Arc columns.
         hasSubplot = False
-        self._arcs = []
         self._scnArcs = {}
         for scId in self._arcNodes:
             self._scnArcs[scId] = string_to_list(self._novel.scenes[scId].scnArcs)
+
+            # Find arcs for novelyst v4.3-.
             for arc in self._scnArcs[scId]:
                 if not arc in self._arcs:
                     self._arcs.append(arc)
+
+            # Find "subplot" arc for yWriter.
             if self._novel.scenes[scId].isSubPlot:
                 hasSubplot = True
 
