@@ -5,6 +5,13 @@
 ## Changelog
 
 
+### v1.0.0
+
+- Reduce the memory use by discarding the docstrings on building.
+
+Based on PyWriter v12.1.2
+Compatibility: novelyst v4.0 API
+
 ### v0.16.0 Beta
 
 - Show all arcs defined with novelyst v4.4+
