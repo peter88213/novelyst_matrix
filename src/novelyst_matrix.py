@@ -90,7 +90,7 @@ class Plugin:
         self.kwargs.update(self.configuration.options)
 
         # Create an entry to the Tools menu.
-        self._ui.toolsMenu.insert_command(0, label=APPLICATION, command=self._start_ui)
+        self._ui.toolsMenu.add_command(label=APPLICATION, command=self._start_ui)
         self._ui.toolsMenu.entryconfig(APPLICATION, state='disabled')
 
         # Add an entry to the Help menu.

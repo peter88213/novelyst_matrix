@@ -5,6 +5,13 @@
 ## Changelog
 
 
+### v1.0.1
+
+- Change the "Matrix" command position in the "Tools" menu.
+
+Based on PyWriter v12.1.2
+Compatibility: novelyst v4.0 API
+
 ### v1.0.0
 
 - Reduce the memory use by discarding the docstrings on building.
