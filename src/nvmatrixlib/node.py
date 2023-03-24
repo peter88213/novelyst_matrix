@@ -11,10 +11,10 @@ class Node(tk.Label):
     """A visual matrix node, representing a boolean value.
     
     Class variables:
-        isModified -- Boolean: True, if at least one instance has changed its state.
+        isModified: Boolean -- True, if at least one instance has changed its state.
     
     Properties:
-        state -- Boolean: Node state. Changes its value and view when clicked on.
+        state: Boolean -- Node state. Changes its value and view when clicked on.
     """
     isModified = False
     marker = '⬛'
@@ -23,8 +23,8 @@ class Node(tk.Label):
         """Place the node to the master widget.
         
         Optional arguments:
-            colorBg -- str: Background color.
-            colorFg -- str: Marker color when status is True.
+            colorBg: str -- Background color.
+            colorFg: str -- Marker color when status is True.
         """
         self.colorFg = colorTrue
         self.colorBg = colorFalse

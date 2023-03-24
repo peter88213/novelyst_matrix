@@ -26,7 +26,7 @@ class RelationsTable:
         """Draw the matrix with blank nodes.
         
         Positional arguments:
-            novel -- Novel: Project reference.
+            novel: Novel -- Project reference.
             
         """
 
