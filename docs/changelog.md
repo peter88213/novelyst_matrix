@@ -5,6 +5,14 @@
 ## Changelog
 
 
+### v1.0.2
+
+- Add a Window icon.
+- Display the project title.
+
+Based on PyWriter v12.3.0
+Compatibility: novelyst v4.0 API
+
 ### v1.0.1
 
 - Change the "Matrix" command position in the "Tools" menu.

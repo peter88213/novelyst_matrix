@@ -61,6 +61,9 @@ if __name__ == '__main__':
         copytree('locale', f'{novelystDir}/locale', dirs_exist_ok=True)
         output(f'Copying "locale"')
 
+        # Install the icon files.
+        copytree('icons', f'{novelystDir}/icons', dirs_exist_ok=True)
+        output(f'Copying "icons"')
     else:
         output(f'ERROR: Cannot find a novelyst installation at "{novelystDir}"')
 

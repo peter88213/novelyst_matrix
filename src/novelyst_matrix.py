@@ -13,6 +13,7 @@ import webbrowser
 from pathlib import Path
 from pywriter.pywriter_globals import *
 from pywriter.config.configuration import Configuration
+from pywriter.ui.set_icon_tk import *
 from nvmatrixlib.table_manager import TableManager
 
 SETTINGS = dict(
@@ -104,7 +105,8 @@ class Plugin:
                 return
 
         self._matrixViewer = TableManager(self, self._ui, **self.kwargs)
-        self._matrixViewer.title(PLUGIN)
+        self._matrixViewer.title(f'{self._ui.novel.title} - {PLUGIN}')
+        set_icon(self._matrixViewer, icon='mLogo32', default=False)
 
     def disable_menu(self):
         """Disable menu entries when no project is open."""
