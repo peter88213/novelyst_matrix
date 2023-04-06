@@ -5,6 +5,10 @@
 ## Changelog
 
 
+### Planned features
+
+See the [GitHub "Features" project](https://github.com/users/peter88213/projects/12).
+
 ### v1.0.3
 
 - Make sure the scene title column's minimum width fits the column header.
