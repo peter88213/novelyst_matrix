@@ -31,6 +31,7 @@ class TableManager(MainTk):
 
         self.plugin = Plugin()
         self.plugin.install(self)
+        self.plugin.enable_menu()
 
     def refresh_tree(self):
         """Test dummy."""

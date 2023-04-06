@@ -5,6 +5,13 @@
 ## Changelog
 
 
+### v1.0.3
+
+- Make sure the scene title column's minimum width fits the column header.
+
+Based on PyWriter v12.3.0
+Compatibility: novelyst v4.0 API
+
 ### v1.0.2
 
 - Add a Window icon.

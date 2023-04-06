@@ -1,6 +1,6 @@
 """Provide a class representing a table of relationships.
 
-Copyright (c) 2022 Peter Triesberger
+Copyright (c) 2023 Peter Triesberger
 For further information see https://github.com/peter88213/novelyst_matrix
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
@@ -91,7 +91,7 @@ class RelationsTable:
                          bg=colorsBackground[bgr][1],
                          ).pack(fill=tk.X)
         tk.Label(master.rowTitles,
-                         text=' ',
+                         text=_('Scenes'),
                          ).pack(fill=tk.X)
 
         #--- Arc columns.

@@ -26,7 +26,7 @@ Mouse wheel binding as proposed here:
 https://stackoverflow.com/questions/17355902/tkinter-binding-mousewheel-to-scrollbar
 https://stackoverflow.com/questions/63629407/tkinter-how-to-stop-scrolling-above-canvas-window
 
-Copyright (c) 2022 Peter Triesberger
+Copyright (c) 2023 Peter Triesberger
 https://github.com/peter88213
 Published under the MIT License (https://opensource.org/licenses/mit-license.php)
 """
