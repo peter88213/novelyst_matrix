@@ -322,13 +322,7 @@ class RelationsTable:
                 else:
                     if node.state:
                         arcs.append(arc)
-            if self._showSubplot:
-                if arcs:
-                    self._novel.scenes[scId].isSubPlot = True
-                else:
-                    self._novel.scenes[scId].isSubPlot = False
-            else:
-                self._novel.scenes[scId].scnArcs = list_to_string(arcs)
+            self._novel.scenes[scId].scnArcs = list_to_string(arcs)
 
         for scId in self._characterNodes:
             self._novel.scenes[scId].characters = []

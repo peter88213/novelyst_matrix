@@ -9,6 +9,14 @@
 
 See the [GitHub "Features" project](https://github.com/users/peter88213/projects/12).
 
+### v1.1.0
+
+- No longer treat yWriter's Plot/Subplot as arcs.
+- Place the "Apply changes?" dialog on top of the matrix window.
+
+Based on PyWriter v12.3.0
+Compatibility: novelyst v4.0 API
+
 ### v1.0.3
 
 - Make sure the scene title column's minimum width fits the column header.

@@ -47,7 +47,7 @@ class TableManager(tk.Toplevel):
 
     def _apply_changes(self):
         if Node.isModified:
-            if messagebox.askyesno(self.title(), f"{_('Apply changes')}?"):
+            if messagebox.askyesno(self.title(), f"{_('Apply changes')}?", parent=self):
                 self._relationsTable.get_nodes()
                 self._ui.isModified = True
                 self._ui.refresh_tree()
