@@ -95,28 +95,12 @@ class RelationsTable:
                          ).pack(fill=tk.X)
 
         #--- Arc columns.
-        hasSubplot = False
         self._scnArcs = {}
         for scId in self._arcNodes:
             self._scnArcs[scId] = string_to_list(self._novel.scenes[scId].scnArcs)
-
-            # Find arcs for novelyst v4.3-.
             for arc in self._scnArcs[scId]:
                 if not arc in self._arcs:
                     self._arcs.append(arc)
-
-            # Find "subplot" arc for yWriter.
-            if self._novel.scenes[scId].isSubPlot:
-                hasSubplot = True
-
-        self._showSubplot = False
-        if hasSubplot and not self._arcs:
-            self._showSubplot = True
-            self._arcs.append('Subplot')
-            for scId in self._arcNodes:
-                if self._novel.scenes[scId].isSubPlot:
-                    self._scnArcs[scId] = ['Subplot']
-
         if self._arcs:
             arcTitleWindow = tk.Frame(master.columnTitles)
             arcTitleWindow.pack(side=tk.LEFT, fill=tk.BOTH)
