@@ -9,6 +9,13 @@
 
 See the [GitHub "Features" project](https://github.com/users/peter88213/projects/12).
 
+### v1.1.1
+
+- Library update.
+
+Based on PyWriter v12.4.1
+Compatibility: novelyst v4.0 API
+
 ### v1.1.0
 
 - No longer treat yWriter's Plot/Subplot as arcs.
