@@ -38,6 +38,15 @@ from tkinter import ttk
 class TableFrame(ttk.Frame):
     """A tkinter framew for a scrollable table. 
     
+    Public methods:
+        destroy() -- Destructor for deleting event bindings.
+        on_mouse_wheel() -- Event handler for vertical scrolling.
+        on_shift_mouse_wheel() -- Event handler for horizontal scrolling.
+        xview()
+        xview_scroll()
+        yview()
+        yview_scroll()   
+    
     Public instance variables:
         rowTitles -- ttk.Frame for a vertically scrolled column of row titles. 
         columnTitles -- ttk.Frame for a horizontally scrolled row of column titles. 
@@ -161,6 +170,31 @@ class TableFrame(ttk.Frame):
             self._rowTitlesCanvas.bind_all("<Shift-MouseWheel>", self.on_shift_mouse_wheel)
             self._displayCanvas.bind_all("<Shift-MouseWheel>", self.on_shift_mouse_wheel)
 
+    def destroy(self):
+        """Destructor for deleting event bindings."""
+        self.display.unbind('<Configure>')
+        if platform.system() == 'Linux':
+            # Vertical scrolling
+            self._rowTitlesCanvas.unbind_all("<Button-4>")
+            self._rowTitlesCanvas.unbind_all("<Button-5>")
+            self._displayCanvas.unbind_all("<Button-4>")
+            self._displayCanvas.unbind_all("<Button-5>")
+
+            # Horizontal scrolling
+            self._rowTitlesCanvas.unbind_all("<Shift-Button-4>")
+            self._rowTitlesCanvas.unbind_all("<Shift-Button-5>")
+            self._displayCanvas.unbind_all("<Shift-Button-4>")
+            self._displayCanvas.unbind_all("<Shift-Button-5>")
+        else:
+            # Vertical scrolling
+            self._rowTitlesCanvas.unbind_all("<MouseWheel>")
+            self._displayCanvas.unbind_all("<MouseWheel>")
+
+            # Horizontal scrolling
+            self._rowTitlesCanvas.unbind_all("<Shift-MouseWheel>")
+            self._displayCanvas.unbind_all("<Shift-MouseWheel>")
+        super().destroy()
+
     def yview(self, *args):
         self._rowTitlesCanvas.yview(*args)
         self._displayCanvas.yview(*args)
@@ -180,7 +214,7 @@ class TableFrame(ttk.Frame):
             self._displayCanvas.xview_scroll(*args)
 
     def on_mouse_wheel(self, event):
-        """Vertical scrolling."""
+        """Event handler for vertical scrolling."""
         if platform.system() == 'Windows':
             self.yview_scroll(int(-1 * (event.delta / 120)), "units")
         elif platform.system() == 'Darwin':
@@ -192,7 +226,7 @@ class TableFrame(ttk.Frame):
                 self.yview_scroll(1, "units")
 
     def on_shift_mouse_wheel(self, event):
-        """Horizontal scrolling."""
+        """Event handler for horizontal scrolling."""
         if platform.system() == 'Windows':
             self.xview_scroll(int(-1 * (event.delta / 120)), "units")
         elif platform.system() == 'Darwin':

@@ -9,6 +9,13 @@
 
 See the [GitHub "Features" project](https://github.com/users/peter88213/projects/12).
 
+### v1.1.2
+
+- Delete event bindings when closing the matrix view.
+
+Based on PyWriter v12.6.0
+Compatibility: novelyst v4.0 API
+
 ### v1.1.1
 
 - Library update.

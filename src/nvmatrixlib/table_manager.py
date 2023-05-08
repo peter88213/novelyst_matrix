@@ -55,6 +55,8 @@ class TableManager(tk.Toplevel):
     def on_quit(self, event=None):
         self._apply_changes()
         self._plugin.kwargs['window_geometry'] = self.winfo_geometry()
+        self.mainWindow.destroy()
+        # this is necessary for deleting the event bindings
         self.destroy()
         self.isOpen = False
 
