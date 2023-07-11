@@ -59,31 +59,31 @@ class TableFrame(ttk.Frame):
         ttk.Frame.__init__(self, parent, *args, **kw)
 
         # Scrollbars.
-        scrollY = ttk.Scrollbar(self, orient=tk.VERTICAL, command=self.yview)
-        scrollY.pack(fill=tk.Y, side=tk.RIGHT, expand=False)
-        scrollX = ttk.Scrollbar(self, orient=tk.HORIZONTAL, command=self.xview)
-        scrollX.pack(fill=tk.X, side=tk.BOTTOM, expand=False)
+        scrollY = ttk.Scrollbar(self, orient='vertical', command=self.yview)
+        scrollY.pack(fill='y', side='right', expand=False)
+        scrollX = ttk.Scrollbar(self, orient='horizontal', command=self.xview)
+        scrollX.pack(fill='x', side='bottom', expand=False)
 
         # Left column frame.
         leftColFrame = ttk.Frame(self)
-        leftColFrame.pack(side=tk.LEFT, fill=tk.BOTH, expand=False)
+        leftColFrame.pack(side='left', fill='both', expand=False)
 
         # Fixed title column header.
         self.topLeft = ttk.Frame(leftColFrame)
-        self.topLeft.pack(anchor=tk.W, fill=tk.X, expand=False)
+        self.topLeft.pack(anchor='w', fill='x', expand=False)
 
         #--- Vertically scrollable row titles.
         rowTitlesFrame = ttk.Frame(leftColFrame)
-        rowTitlesFrame.pack(fill=tk.BOTH, expand=True)
+        rowTitlesFrame.pack(fill='both', expand=True)
         self._rowTitlesCanvas = tk.Canvas(rowTitlesFrame, bd=0, highlightthickness=0)
         self._rowTitlesCanvas.configure(yscrollcommand=scrollY.set)
-        self._rowTitlesCanvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        self._rowTitlesCanvas.pack(side='left', fill='both', expand=True)
         self._rowTitlesCanvas.xview_moveto(0)
         self._rowTitlesCanvas.yview_moveto(0)
 
         # Create a frame inside the row titles canvas which will be scrolled with it.
         self.rowTitles = ttk.Frame(self._rowTitlesCanvas)
-        self._rowTitlesCanvas.create_window(0, 0, window=self.rowTitles, anchor=tk.NW, tags="self.rowTitles")
+        self._rowTitlesCanvas.create_window(0, 0, window=self.rowTitles, anchor='nw', tags="self.rowTitles")
 
         def _configure_rowTitles(event):
             # Update the scrollbars to match the size of the display frame.
@@ -98,20 +98,20 @@ class TableFrame(ttk.Frame):
 
         # Right column frame.
         rightColFrame = ttk.Frame(self)
-        rightColFrame.pack(side=tk.LEFT, anchor=tk.NW, fill=tk.BOTH, expand=True)
+        rightColFrame.pack(side='left', anchor='nw', fill='both', expand=True)
 
         #--- Horizontally scrollable column titles.
         columnTitlesFrame = ttk.Frame(rightColFrame)
-        columnTitlesFrame.pack(fill=tk.X, anchor=tk.NW, expand=False)
+        columnTitlesFrame.pack(fill='x', anchor='nw', expand=False)
         self._columnTitlesCanvas = tk.Canvas(columnTitlesFrame, bd=0, highlightthickness=0)
         self._columnTitlesCanvas.configure(xscrollcommand=scrollX.set)
-        self._columnTitlesCanvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        self._columnTitlesCanvas.pack(side='left', fill='both', expand=True)
         self._columnTitlesCanvas.xview_moveto(0)
         self._columnTitlesCanvas.yview_moveto(0)
 
         # Create a frame inside the column titles canvas which will be scrolled with it.
         self.columnTitles = ttk.Frame(self._columnTitlesCanvas)
-        self._columnTitlesCanvas.create_window(0, 0, window=self.columnTitles, anchor=tk.NW, tags="self.columnTitles")
+        self._columnTitlesCanvas.create_window(0, 0, window=self.columnTitles, anchor='nw', tags="self.columnTitles")
 
         def _configure_columnTitles(event):
             # Update the scrollbars to match the size of the display frame.
@@ -128,17 +128,17 @@ class TableFrame(ttk.Frame):
 
         #--- Vertically and horizontally scrollable display.
         displayFrame = ttk.Frame(rightColFrame)
-        displayFrame.pack(fill=tk.BOTH, expand=True)
+        displayFrame.pack(fill='both', expand=True)
         self._displayCanvas = tk.Canvas(displayFrame, bd=0, highlightthickness=0)
         self._displayCanvas.configure(xscrollcommand=scrollX.set)
         self._displayCanvas.configure(yscrollcommand=scrollY.set)
-        self._displayCanvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        self._displayCanvas.pack(side='left', fill='both', expand=True)
         self._displayCanvas.xview_moveto(0)
         self._displayCanvas.yview_moveto(0)
 
         # Create a frame inside the display canvas which will be scrolled with it.
         self.display = ttk.Frame(self._displayCanvas)
-        self._displayCanvas.create_window(0, 0, window=self.display, anchor=tk.NW, tags="self.display")
+        self._displayCanvas.create_window(0, 0, window=self.display, anchor='nw', tags="self.display")
 
         def _configure_display(event):
             # Update the scrollbars to match the size of the display frame.

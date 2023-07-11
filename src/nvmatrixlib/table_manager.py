@@ -43,7 +43,7 @@ class TableManager(tk.Toplevel):
             self._relationsTable = RelationsTable(self.mainWindow, self._ui.novel, **self._kwargs)
             self._relationsTable.set_nodes()
         self.isOpen = True
-        self.mainWindow.pack(fill=tk.BOTH, expand=True, padx=2, pady=2)
+        self.mainWindow.pack(fill='both', expand=True, padx=2, pady=2)
 
     def _apply_changes(self):
         if Node.isModified:
