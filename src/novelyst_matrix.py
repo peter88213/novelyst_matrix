@@ -42,6 +42,10 @@ SETTINGS = dict(
         color_item_node='aquamarine3',
         )
 OPTIONS = dict(
+        show_arcs=True,
+        show_characters=True,
+        show_locations=True,
+        show_items=True,
         )
 
 # Initialize localization.

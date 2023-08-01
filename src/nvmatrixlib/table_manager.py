@@ -5,6 +5,7 @@ For further information see https://github.com/peter88213/novelyst_matrix
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 import tkinter as tk
+from tkinter import ttk
 from tkinter import messagebox
 from pywriter.pywriter_globals import *
 from nvmatrixlib.relations_table import RelationsTable
@@ -34,6 +35,18 @@ class TableManager(tk.Toplevel):
         self.mainMenu = tk.Menu(self)
         self.config(menu=self.mainMenu)
 
+        #--- Settings
+        self._showArcs = tk.BooleanVar(value=kwargs['show_arcs'])
+        self._showCharacters = tk.BooleanVar(value=kwargs['show_characters'])
+        self._showLocations = tk.BooleanVar(value=kwargs['show_locations'])
+        self._showItems = tk.BooleanVar(value=kwargs['show_items'])
+        settings = tk.Frame(self)
+        ttk.Checkbutton(settings, text=_('Show arcs'), variable=self._showArcs, onvalue=True, offvalue=False).pack(side='left', padx='2', pady='2')
+        ttk.Checkbutton(settings, text=_('Show characters'), variable=self._showCharacters, onvalue=True, offvalue=False).pack(side='left', padx='2', pady='2')
+        ttk.Checkbutton(settings, text=_('Show locations'), variable=self._showLocations, onvalue=True, offvalue=False).pack(side='left', padx='2', pady='2')
+        ttk.Checkbutton(settings, text=_('Show items'), variable=self._showItems, onvalue=True, offvalue=False).pack(side='left', padx='2', pady='2')
+        settings.pack(anchor='w')
+
         #--- Main window.
         self.mainWindow = TableFrame(self)
 
@@ -54,6 +67,10 @@ class TableManager(tk.Toplevel):
 
     def on_quit(self, event=None):
         self._apply_changes()
+        self._plugin.kwargs['show_arcs'] = self._showArcs.get()
+        self._plugin.kwargs['show_characters'] = self._showCharacters.get()
+        self._plugin.kwargs['show_locations'] = self._showLocations.get()
+        self._plugin.kwargs['show_items'] = self._showItems.get()
         self._plugin.kwargs['window_geometry'] = self.winfo_geometry()
         self.mainWindow.destroy()
         # this is necessary for deleting the event bindings
