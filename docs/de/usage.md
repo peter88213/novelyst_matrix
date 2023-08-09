@@ -10,7 +10,7 @@ A [novelyst](https://peter88213.github.io/novelyst/) plugin providing a scene re
 
 If [novelyst](https://peter88213.github.io/novelyst/) is installed, the setup script auto-installs the *novelyst_matrix* plugin in the *novelyst* plugin directory.
 
-The plugin adds a **Matrix** entry to the *novelyst* **Tools**-Menü, and a **Matrix-Plugin Online-Hilfe** entry to the **Help**-Menü. 
+The plugin adds a **Matrix** entry to the *novelyst* **Extras**-Menü, and a **Matrix-Plugin Online-Hilfe** entry to the **Hilfe**-Menü. 
 
 ---
 
@@ -20,13 +20,13 @@ The plugin adds a **Matrix** entry to the *novelyst* **Tools**-Menü, and a **Ma
 
 ## Launch the program
 
-- Open the matrix manager from the main-Menü: **Extras> Matrix**.
+- Open the matrix manager from the main-Menü: **Extras > Matrix**.
 
 ---
 
-## Add/remove relationships
+## Hinzufügen/remove relationships
 
-- Add/Remove relationships by klicking on the nodes with the `Ctrl` key pressed.
+- Hinzufügen/Remove relationships by klicking on the nodes with the `Ctrl` key pressed.
 
 ---
 
@@ -37,7 +37,7 @@ The plugin adds a **Matrix** entry to the *novelyst* **Tools**-Menü, and a **Ma
 
 ---
 
-## Exit 
+## Beenden 
 
 - When closing the window, you are asked whether changes shall be applied to the project.
 
