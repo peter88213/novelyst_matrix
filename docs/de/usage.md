@@ -10,7 +10,7 @@ A [novelyst](https://peter88213.github.io/novelyst/) plugin providing a scene re
 
 If [novelyst](https://peter88213.github.io/novelyst/) is installed, the setup script auto-installs the *novelyst_matrix* plugin in the *novelyst* plugin directory.
 
-The plugin adds a **Matrix** entry to the *novelyst* **Tools** menu, and a **Matrix plugin Online help** entry to the **Help** menu. 
+The plugin adds a **Matrix** entry to the *novelyst* **Tools**-Menü, and a **Matrix-Plugin Online-Hilfe** entry to the **Help**-Menü. 
 
 ---
 
@@ -20,7 +20,7 @@ The plugin adds a **Matrix** entry to the *novelyst* **Tools** menu, and a **Mat
 
 ## Launch the program
 
-- Open the matrix manager from the main menu: **Tools > Matrix**.
+- Open the matrix manager from the main-Menü: **Extras> Matrix**.
 
 ---
 
