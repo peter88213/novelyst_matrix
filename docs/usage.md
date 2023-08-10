@@ -1,4 +1,4 @@
-[Project homepage](https://peter88213.github.io/novelyst_matrix)
+[Project homepage](https://peter88213.github.io/novelyst_matrix) > Instructions for use
 
 --- 
 
