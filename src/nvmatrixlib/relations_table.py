@@ -325,7 +325,7 @@ class RelationsTable:
             self._novel.scenes[scId].scnArcs = list_to_string(arcs)
 
         for scId in self._characterNodes:
-            self._novel.scenes[scId].characters = []
+            scCharacters = []
             for crId in self._novel.characters:
                 try:
                     node = self._characterNodes[scId][crId]
@@ -333,7 +333,16 @@ class RelationsTable:
                     pass
                 else:
                     if node.state:
-                        self._novel.scenes[scId].characters.append(crId)
+                        scCharacters.append(crId)
+            # Create a new scene character list, keeping the old order (POV)
+            srtCharacters = []
+            for crId in self._novel.scenes[scId].characters:
+                if crId in scCharacters:
+                    srtCharacters.append(crId)
+            for crId in scCharacters:
+                if not crId in srtCharacters:
+                    srtCharacters.append(crId)
+            self._novel.scenes[scId].characters = srtCharacters
 
         for scId in self._locationNodes:
             self._novel.scenes[scId].locations = []

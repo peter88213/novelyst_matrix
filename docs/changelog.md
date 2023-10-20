@@ -9,6 +9,13 @@
 
 See the [GitHub "Features" project](https://github.com/users/peter88213/projects/12).
 
+### v1.1.4
+
+- Bugfix: Keep the scenes' character reference order to secure the POV.
+
+Based on PyWriter v12.17.1
+Compatibility: novelyst v4.0 API
+
 ### v1.1.3
 
 - Refactor the code for performance improvement.
