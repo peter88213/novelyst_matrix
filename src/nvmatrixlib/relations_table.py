@@ -5,7 +5,7 @@ For further information see https://github.com/peter88213/novelyst_matrix
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 import tkinter as tk
-from pywriter.pywriter_globals import *
+from novxlib.novx_globals import *
 from nvmatrixlib.node import Node
 
 
@@ -58,16 +58,9 @@ class RelationsTable:
         self._characterNodes = {}
         self._locationNodes = {}
         self._itemNodes = {}
-        self._arcs = []
-        for chId in self._novel.srtChapters:
-            #--- Find arcs.
-            if self._novel.chapters[chId].chType == 2:
-                arc = self._novel.chapters[chId].kwVar.get('Field_ArcDefinition', None)
-                if arc:
-                    if not arc in self._arcs:
-                        self._arcs.append(arc)
-            elif self._novel.chapters[chId].chType == 0:
-                for scId in self._novel.chapters[chId].srtScenes:
+        for chId in self._novel.tree.get_children(CH_ROOT):
+            if self._novel.chapters[chId].chType == 0:
+                for scId in self._novel.tree.get_children(chId):
                     bgr = row % 2
                     if self._novel.scenes[scId].scType != 0:
                         continue
@@ -95,13 +88,7 @@ class RelationsTable:
                          ).pack(fill='x')
 
         #--- Arc columns.
-        self._scnArcs = {}
-        for scId in self._arcNodes:
-            self._scnArcs[scId] = string_to_list(self._novel.scenes[scId].scnArcs)
-            for arc in self._scnArcs[scId]:
-                if not arc in self._arcs:
-                    self._arcs.append(arc)
-        if self._arcs:
+        if self._novel.arcs:
             arcTitleWindow = tk.Frame(master.columnTitles)
             arcTitleWindow.pack(side='left', fill='both')
             tk.Label(arcTitleWindow, text=_('Arcs'), bg=kwargs['color_arc_heading']).pack(fill='x')
@@ -109,12 +96,12 @@ class RelationsTable:
             arcTypeColumn.pack(side='left', fill='both')
             arcColumn = tk.Frame(arcTypeColumn)
             arcColumn.pack(fill='both')
-            for arc in self._arcs:
+            for acId in self._novel.tree.get_children(AC_ROOT):
                 # Display arc titles.
                 row = 1
                 bgr = row % 2
                 bgc = col % 2
-                arcTitle = fill_str(arc)
+                arcTitle = fill_str(self._novel.arcs[acId].shortName)
                 tk.Label(arcTitleWindow,
                          text=arcTitle,
                          bg=colorsBackground[bgr][bgc],
@@ -126,14 +113,14 @@ class RelationsTable:
                 # Display arc nodes.
                 columns.append(tk.Frame(arcColumn))
                 columns[col].pack(side='left', fill='both', expand=True)
-                for scId in self._scnArcs:
+                for scId in self._arcNodes:
                     bgr = row % 2
                     node = Node(columns[col],
                          colorFalse=colorsBackground[bgr][bgc],
                          colorTrue=kwargs['color_arc_node']
                          )
                     node.pack(fill='x', expand=True)
-                    self._arcNodes[scId][arc] = node
+                    self._arcNodes[scId][acId] = node
                     row += 1
                 bgr = row % 2
                 tk.Label(columns[col],
@@ -154,7 +141,7 @@ class RelationsTable:
             characterTitleWindow = tk.Frame(master.columnTitles)
             characterTitleWindow.pack(side='left', fill='both')
             tk.Label(characterTitleWindow, text=_('Characters'), bg=kwargs['color_character_heading']).pack(fill='x')
-            for crId in self._novel.srtCharacters:
+            for crId in self._novel.tree.get_children(CR_ROOT):
                 # Display character titles.
                 row = 1
                 bgr = row % 2
@@ -199,7 +186,7 @@ class RelationsTable:
             locationTitleWindow = tk.Frame(master.columnTitles)
             locationTitleWindow.pack(side='left', fill='both')
             tk.Label(locationTitleWindow, text=_('Locations'), bg=kwargs['color_location_heading']).pack(fill='x')
-            for lcId in self._novel.srtLocations:
+            for lcId in self._novel.tree.get_children(LC_ROOT):
                 # Display location titles.
                 row = 1
                 bgr = row % 2
@@ -244,7 +231,7 @@ class RelationsTable:
             itemTitleWindow = tk.Frame(master.columnTitles)
             itemTitleWindow.pack(side='left', fill='both')
             tk.Label(itemTitleWindow, text=_('Items'), bg=kwargs['color_item_heading']).pack(fill='x')
-            for itId in self._novel.srtItems:
+            for itId in self._novel.tree.get_children(IT_ROOT):
                 # Display item titles.
                 row = 1
                 bgr = row % 2
@@ -283,86 +270,67 @@ class RelationsTable:
     def set_nodes(self):
         """Loop through all nodes, setting states."""
         for scId in self._arcNodes:
-            for arc in self._arcs:
-                try:
-                    self._arcNodes[scId][arc].state = (arc in self._scnArcs[scId])
-                except TypeError:
-                    pass
 
-        for scId in self._characterNodes:
+            # Arcs.
+            for acId in self._novel.arcs:
+                self._arcNodes[scId][acId].state = (acId in self._novel.scenes[scId].scArcs)
+
+            # Characters.
             for crId in self._novel.characters:
-                try:
-                    self._characterNodes[scId][crId].state = (crId in self._novel.scenes[scId].characters)
-                except TypeError:
-                    pass
+                self._characterNodes[scId][crId].state = (crId in self._novel.scenes[scId].characters)
 
-        for scId in self._locationNodes:
+            # Locations.
             for lcId in self._novel.locations:
-                try:
-                    self._locationNodes[scId][lcId].state = (lcId in self._novel.scenes[scId].locations)
-                except TypeError:
-                    pass
+                self._locationNodes[scId][lcId].state = (lcId in self._novel.scenes[scId].locations)
 
-        for scId in self._itemNodes:
+            # Items.
             for itId in self._novel.items:
-                try:
-                    self._itemNodes[scId][itId].state = (itId in self._novel.scenes[scId].items)
-                except TypeError:
-                    pass
+                self._itemNodes[scId][itId].state = (itId in self._novel.scenes[scId].items)
 
     def get_nodes(self):
         """Loop through all nodes, modifying the scenes according to the states."""
         for scId in self._arcNodes:
-            arcs = []
-            for arc in self._arcs:
-                try:
-                    node = self._arcNodes[scId][arc]
-                except TypeError:
-                    pass
-                else:
-                    if node.state:
-                        arcs.append(arc)
-            self._novel.scenes[scId].scnArcs = list_to_string(arcs)
 
-        for scId in self._characterNodes:
+            # Arcs.
+            scArcs = []
+            for acId in self._novel.arcs:
+                node = self._arcNodes[scId][acId]
+                if node.state:
+                    scArcs.append(acId)
+                else:
+                    arcScenes = self._novel.arcs[acId].scenes
+                    if scId in arcScenes:
+                        arcScenes.remove(scId)
+                        self._novel.arcs[acId].scenes = arcScenes
+                        scArcPoints = self._novel.scenes[scId].scArcPoints
+                        for apId in list(scArcPoints):
+                            if scArcPoints[apId] == acId:
+                                self._novel.arcPoints[apId].sceneAssoc = None
+                                del scArcPoints[apId]
+                                self._novel.scenes[scId].scArcPoints = scArcPoints
+            self._novel.scenes[scId].scArcs = scArcs
+
+            # Characters.
             scCharacters = []
             for crId in self._novel.characters:
-                try:
-                    node = self._characterNodes[scId][crId]
-                except TypeError:
-                    pass
-                else:
-                    if node.state:
-                        scCharacters.append(crId)
-            # Create a new scene character list, keeping the old order (POV)
-            srtCharacters = []
-            for crId in self._novel.scenes[scId].characters:
-                if crId in scCharacters:
-                    srtCharacters.append(crId)
-            for crId in scCharacters:
-                if not crId in srtCharacters:
-                    srtCharacters.append(crId)
-            self._novel.scenes[scId].characters = srtCharacters
+                node = self._characterNodes[scId][crId]
+                if node.state:
+                    scCharacters.append(crId)
+            self._novel.scenes[scId].characters = scCharacters
 
-        for scId in self._locationNodes:
-            self._novel.scenes[scId].locations = []
+            # Locations.
+            scLocations = []
             for lcId in self._novel.locations:
-                try:
-                    node = self._locationNodes[scId][lcId]
-                except TypeError:
-                    pass
-                else:
-                    if node.state:
-                        self._novel.scenes[scId].locations.append(lcId)
+                node = self._locationNodes[scId][lcId]
+                if node.state:
+                    scLocations.append(lcId)
+            self._novel.scenes[scId].locations = scLocations
 
-        for scId in self._itemNodes:
-            self._novel.scenes[scId].items = []
+            # Items.
+            scItems = []
             for itId in self._novel.items:
-                try:
-                    node = self._itemNodes[scId][itId]
-                except TypeError:
-                    pass
-                else:
-                    if node.state:
-                        self._novel.scenes[scId].items.append(itId)
+                node = self._itemNodes[scId][itId]
+                if node.state:
+                    scItems.append(itId)
+            self._novel.scenes[scId].items = scItems
 

@@ -21,9 +21,9 @@ import gettext
 import locale
 import webbrowser
 from pathlib import Path
-from pywriter.pywriter_globals import *
-from pywriter.config.configuration import Configuration
-from pywriter.ui.set_icon_tk import *
+from novxlib.novx_globals import *
+from novxlib.config.configuration import Configuration
+from novxlib.ui.set_icon_tk import *
 from nvmatrixlib.table_manager import TableManager
 
 SETTINGS = dict(
@@ -73,7 +73,7 @@ class Plugin:
         on_close() -- Apply changes and close the window.
     """
     VERSION = '@release'
-    NOVELYST_API = '4.0'
+    NOVELYST_API = '5.0'
     DESCRIPTION = 'A scene relationship table'
     URL = 'https://peter88213.github.io/novelyst_matrix'
     _HELP_URL = 'https://peter88213.github.io/novelyst_matrix/usage'
@@ -90,7 +90,7 @@ class Plugin:
         #--- Load configuration.
         try:
             homeDir = str(Path.home()).replace('\\', '/')
-            configDir = f'{homeDir}/.pywriter/novelyst/config'
+            configDir = f'{homeDir}/.novelyst/config'
         except:
             configDir = '.'
         self.iniFile = f'{configDir}/matrix.ini'

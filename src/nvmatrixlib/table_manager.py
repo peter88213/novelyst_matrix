@@ -6,7 +6,7 @@ License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 import tkinter as tk
 from tkinter import messagebox
-from pywriter.pywriter_globals import *
+from novxlib.novx_globals import *
 from nvmatrixlib.relations_table import RelationsTable
 from nvmatrixlib.node import Node
 from nvmatrixlib.widgets.table_frame import TableFrame
@@ -17,7 +17,6 @@ class TableManager(tk.Toplevel):
 
     def __init__(self, plugin, ui, **kwargs):
         self._ui = ui
-        self._ui.refresh_tree()
         self._plugin = plugin
         self._kwargs = kwargs
         super().__init__()
@@ -49,8 +48,7 @@ class TableManager(tk.Toplevel):
         if Node.isModified:
             if messagebox.askyesno(self.title(), f"{_('Apply changes')}?", parent=self):
                 self._relationsTable.get_nodes()
-                self._ui.isModified = True
-                self._ui.refresh_tree()
+                self._ui.on_element_change()
 
     def on_quit(self, event=None):
         self._apply_changes()
