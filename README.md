@@ -62,7 +62,7 @@ Add a subdirectory tree to **novelyst/locale**, and place *novelyst_matrix.mo* t
 
 ```
 <your home directory>
-└── .pywriter/
+└── .novxlib/
     └── novelyst/
         └── locale/
             └─ <language code>/
@@ -86,15 +86,15 @@ An easy way may be to put a posting in the [novelyst forum](https://github.com/p
 
 ## Development
 
-*novelyst_matrix* depends on the [pywriter](https://github.com/peter88213/PyWriter) library which must be present in your file system. It is organized as an Eclipse PyDev project. The official release branch on GitHub is *main*.
+*novelyst_matrix* depends on the [novxlib](https://github.com/peter88213/novxlib) library which must be present in your file system. It is organized as an Eclipse PyDev project. The official release branch on GitHub is *main*.
 
 ### Mandatory directory structure for building the application script
 
 ```
 .
-├── PyWriter/
+├── novxlib/
 │   └── src/
-│       └── pywriter/
+│       └── novxlib/
 └── novelyst_matrix/
     ├── src/
     ├── test/
@@ -104,7 +104,7 @@ An easy way may be to put a posting in the [novelyst forum](https://github.com/p
 
 ### Conventions
 
-See https://github.com/peter88213/PyWriter/blob/main/docs/conventions.md
+See https://github.com/peter88213/novxlib/blob/main/docs/conventions.md
 
 ## Development tools
 

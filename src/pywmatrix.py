@@ -5,8 +5,8 @@ License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 import sys
 import tkinter as tk
-from pywriter.pywriter_globals import *
-from pywriter.ui.main_tk import MainTk
+from novxlib.novxlib_globals import *
+from novxlib.ui.main_tk import MainTk
 from novelyst_matrix import Plugin
 
 APPLICATION = 'Matrix'
