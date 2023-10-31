@@ -35,5 +35,5 @@ msgstr ""
 msgid "Matrix plugin Online help"
 msgstr ""
 
-msgid "Scenes"
+msgid "Sections"
 msgstr ""

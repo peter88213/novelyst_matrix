@@ -34,6 +34,6 @@ msgstr "Matrix"
 msgid "Matrix plugin Online help"
 msgstr "Matrix-Plugin Online-Hilfe"
 
-msgid "Scenes"
+msgid "Sections"
 msgstr "Abschnitte"
 

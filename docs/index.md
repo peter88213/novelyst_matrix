@@ -2,14 +2,14 @@
 
 The [novelyst](https://peter88213.github.io/novelyst/) Python program helps authors organize novels.  
 
-*novelyst_matrix* is a plugin providing a scene relationship matrix. 
+*novelyst_matrix* is a plugin providing a section relationship matrix. 
 
 ![Screenshot](Screenshots/screen01.png)
 
 ## Features
 
 - The plugin adds a "Matrix" entry to the *novelyst* "Tools" menu.
-- Display scene relationships to characters, locations, items, and arcs with a spreadsheet-like matrix.
+- Display section relationships to characters, locations, items, and arcs with a spreadsheet-like matrix.
 - Add/Remove relationships by klicking on the nodes.
 
 ## Requirements

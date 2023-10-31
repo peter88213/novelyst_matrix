@@ -1,6 +1,6 @@
 # novelyst_matrix
 
-A plugin providing a scene relationship matrix. 
+A plugin providing a section relationship matrix. 
 
 For more information, see the [project homepage](https://peter88213.github.io/novelyst_matrix) with description and download instructions.
 

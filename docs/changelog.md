@@ -11,7 +11,7 @@ See the [GitHub "Features" project](https://github.com/users/peter88213/projects
 
 ### v1.1.4
 
-- Bugfix: Keep the scenes' character reference order to secure the POV.
+- Bugfix: Keep the sections' character reference order to secure the POV.
 
 Based on PyWriter v12.17.1
 Compatibility: novelyst v4.0 API
@@ -47,7 +47,7 @@ Compatibility: novelyst v4.0 API
 
 ### v1.0.3
 
-- Make sure the scene title column's minimum width fits the column header.
+- Make sure the section title column's minimum width fits the column header.
 
 Based on PyWriter v12.3.0
 Compatibility: novelyst v4.0 API
@@ -113,7 +113,7 @@ Compatibility: novelyst v4.0 API
 
 ### v0.13.1 Beta
 
-- Fix a regression from v0.13.0 where arc changes are not written back correctly, if a scene is assigned to the "subplot".
+- Fix a regression from v0.13.0 where arc changes are not written back correctly, if a section is assigned to the "subplot".
 - Refresh the tree before building the table to make sure no changes are lost.
 
 Based on yw-table v0.13.1
@@ -121,7 +121,7 @@ Compatibility: novelyst v4.0 API
 
 ### v0.13.0 Beta
 
-- Use "Subplot" as an arc, if at least one scene is assigned, and there are no other arcs.
+- Use "Subplot" as an arc, if at least one section is assigned, and there are no other arcs.
 
 Based on yw-table v0.13.0
 Compatibility: novelyst v4.0 API
@@ -239,7 +239,7 @@ Compatibility: novelyst v4.0 API
 
 - Use a paned window.
 - Add a heading for each element type.
-- Only show "normal" scenes.
+- Only show "normal" sections.
 
 Compatibility: novelyst v4.0 API
 
@@ -247,7 +247,7 @@ Compatibility: novelyst v4.0 API
 
 - Use a paned window.
 - Add a heading for each element type.
-- Only show "normal" scenes.
+- Only show "normal" sections.
 
 #### To do:
 

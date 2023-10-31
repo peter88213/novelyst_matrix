@@ -2,7 +2,7 @@
 
 --- 
 
-A [novelyst](https://peter88213.github.io/novelyst/) plugin providing a scene relationship matrix.
+A [novelyst](https://peter88213.github.io/novelyst/) plugin providing a section relationship matrix.
 
 ---
 

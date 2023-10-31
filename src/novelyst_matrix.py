@@ -74,7 +74,7 @@ class Plugin:
     """
     VERSION = '@release'
     NOVELYST_API = '5.0'
-    DESCRIPTION = 'A scene relationship table'
+    DESCRIPTION = 'A section relationship table'
     URL = 'https://peter88213.github.io/novelyst_matrix'
     _HELP_URL = 'https://peter88213.github.io/novelyst_matrix/usage'
 

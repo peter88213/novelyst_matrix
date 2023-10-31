@@ -14,12 +14,12 @@ class RelationsTable:
     
     Public methods:
         set_nodes -- Loop through all nodes, setting states.
-        get_nodes -- Loop through all nodes, modifying the scenes according to the states.
+        get_nodes -- Loop through all nodes, modifying the sections according to the states.
     
     The visual part consists of one frame per column, each containing 
     one node per row. 
     The logical part consists of one dictionary per element type (protected instance variables):
-    {scene ID: {element Id: node}}
+    {section ID: {element Id: node}}
     """
 
     def __init__(self, master, novel, **kwargs):
@@ -48,11 +48,11 @@ class RelationsTable:
         col = 0
         bgc = col % 2
 
-        #--- Scene title column.
-        tk.Label(master.topLeft, text=_('Scenes')).pack(fill='x')
+        #--- Section title column.
+        tk.Label(master.topLeft, text=_('Sections')).pack(fill='x')
         tk.Label(master.topLeft, bg=colorsBackground[1][1], text=' ').pack(fill='x')
 
-        #--- Display titles of "normal" scenes.
+        #--- Display titles of "normal" sections.
         row = 0
         self._arcNodes = {}
         self._characterNodes = {}
@@ -62,17 +62,17 @@ class RelationsTable:
             if self._novel.chapters[chId].chType == 0:
                 for scId in self._novel.tree.get_children(chId):
                     bgr = row % 2
-                    if self._novel.scenes[scId].scType != 0:
+                    if self._novel.sections[scId].scType != 0:
                         continue
 
-                    #--- Initialize matrix scene row dictionaries.
+                    #--- Initialize matrix section row dictionaries.
                     self._characterNodes[scId] = {}
                     self._locationNodes[scId] = {}
                     self._itemNodes[scId] = {}
                     self._arcNodes[scId] = {}
 
                     tk.Label(master.rowTitles,
-                             text=self._novel.scenes[scId].title,
+                             text=self._novel.sections[scId].title,
                              bg=colorsBackground[bgr][1],
                              justify='left',
                              anchor='w'
@@ -84,7 +84,7 @@ class RelationsTable:
                          bg=colorsBackground[bgr][1],
                          ).pack(fill='x')
         tk.Label(master.rowTitles,
-                         text=_('Scenes'),
+                         text=_('Sections'),
                          ).pack(fill='x')
 
         #--- Arc columns.
@@ -273,22 +273,22 @@ class RelationsTable:
 
             # Arcs.
             for acId in self._novel.arcs:
-                self._arcNodes[scId][acId].state = (acId in self._novel.scenes[scId].scArcs)
+                self._arcNodes[scId][acId].state = (acId in self._novel.sections[scId].scArcs)
 
             # Characters.
             for crId in self._novel.characters:
-                self._characterNodes[scId][crId].state = (crId in self._novel.scenes[scId].characters)
+                self._characterNodes[scId][crId].state = (crId in self._novel.sections[scId].characters)
 
             # Locations.
             for lcId in self._novel.locations:
-                self._locationNodes[scId][lcId].state = (lcId in self._novel.scenes[scId].locations)
+                self._locationNodes[scId][lcId].state = (lcId in self._novel.sections[scId].locations)
 
             # Items.
             for itId in self._novel.items:
-                self._itemNodes[scId][itId].state = (itId in self._novel.scenes[scId].items)
+                self._itemNodes[scId][itId].state = (itId in self._novel.sections[scId].items)
 
     def get_nodes(self):
-        """Loop through all nodes, modifying the scenes according to the states."""
+        """Loop through all nodes, modifying the sections according to the states."""
         for scId in self._arcNodes:
 
             # Arcs.
@@ -298,17 +298,17 @@ class RelationsTable:
                 if node.state:
                     scArcs.append(acId)
                 else:
-                    arcScenes = self._novel.arcs[acId].scenes
-                    if scId in arcScenes:
-                        arcScenes.remove(scId)
-                        self._novel.arcs[acId].scenes = arcScenes
-                        scTurningPoints = self._novel.scenes[scId].scTurningPoints
+                    arcSections = self._novel.arcs[acId].sections
+                    if scId in arcSections:
+                        arcSections.remove(scId)
+                        self._novel.arcs[acId].sections = arcSections
+                        scTurningPoints = self._novel.sections[scId].scTurningPoints
                         for tpId in list(scTurningPoints):
                             if scTurningPoints[tpId] == acId:
-                                self._novel.turningPoints[tpId].sceneAssoc = None
+                                self._novel.turningPoints[tpId].sectionAssoc = None
                                 del scTurningPoints[tpId]
-                                self._novel.scenes[scId].scTurningPoints = scTurningPoints
-            self._novel.scenes[scId].scArcs = scArcs
+                                self._novel.sections[scId].scTurningPoints = scTurningPoints
+            self._novel.sections[scId].scArcs = scArcs
 
             # Characters.
             scCharacters = []
@@ -316,7 +316,7 @@ class RelationsTable:
                 node = self._characterNodes[scId][crId]
                 if node.state:
                     scCharacters.append(crId)
-            self._novel.scenes[scId].characters = scCharacters
+            self._novel.sections[scId].characters = scCharacters
 
             # Locations.
             scLocations = []
@@ -324,7 +324,7 @@ class RelationsTable:
                 node = self._locationNodes[scId][lcId]
                 if node.state:
                     scLocations.append(lcId)
-            self._novel.scenes[scId].locations = scLocations
+            self._novel.sections[scId].locations = scLocations
 
             # Items.
             scItems = []
@@ -332,5 +332,5 @@ class RelationsTable:
                 node = self._itemNodes[scId][itId]
                 if node.state:
                     scItems.append(itId)
-            self._novel.scenes[scId].items = scItems
+            self._novel.sections[scId].items = scItems
 

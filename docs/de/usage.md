@@ -2,7 +2,7 @@
 
 --- 
 
-Ein [novelyst](https://peter88213.github.io/novelyst/)-Plugin providing a scene relationship matrix.
+Ein [novelyst](https://peter88213.github.io/novelyst/)-Plugin providing a section relationship matrix.
 
 ---
 
