@@ -302,12 +302,12 @@ class RelationsTable:
                     if scId in arcScenes:
                         arcScenes.remove(scId)
                         self._novel.arcs[acId].scenes = arcScenes
-                        scArcPoints = self._novel.scenes[scId].scArcPoints
-                        for apId in list(scArcPoints):
-                            if scArcPoints[apId] == acId:
-                                self._novel.arcPoints[apId].sceneAssoc = None
-                                del scArcPoints[apId]
-                                self._novel.scenes[scId].scArcPoints = scArcPoints
+                        scTurningPoints = self._novel.scenes[scId].scTurningPoints
+                        for tpId in list(scTurningPoints):
+                            if scTurningPoints[tpId] == acId:
+                                self._novel.turningPoints[tpId].sceneAssoc = None
+                                del scTurningPoints[tpId]
+                                self._novel.scenes[scId].scTurningPoints = scTurningPoints
             self._novel.scenes[scId].scArcs = scArcs
 
             # Characters.
