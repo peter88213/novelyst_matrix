@@ -18,9 +18,9 @@ The [novelyst](https://peter88213.github.io/novelyst/) Python program helps auth
 
 ## Download and install
 
-[Download the latest release (version 2.0.1)](https://github.com/peter88213/novelyst_matrix/raw/main/dist/novelyst_matrix_v2.0.1.zip)
+[Download the latest release (version 2.0.2)](https://github.com/peter88213/novelyst_matrix/raw/main/dist/novelyst_matrix_v2.0.2.zip)
 
-- Extract the "novelyst_matrix_v2.0.1" folder from the downloaded zipfile "novelyst_matrix_v2.0.1.zip".
+- Extract the "novelyst_matrix_v2.0.2" folder from the downloaded zipfile "novelyst_matrix_v2.0.2.zip".
 - Move into this new folder and launch **setup.pyw**. This installs the plugin for the local user.
 
 ---
