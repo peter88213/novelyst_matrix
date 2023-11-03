@@ -5,10 +5,8 @@ For further information see https://github.com/peter88213/novelyst_matrix
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 import tkinter as tk
-from tkinter import messagebox
 from novxlib.novx_globals import *
 from nvmatrixlib.relations_table import RelationsTable
-from nvmatrixlib.node import Node
 from nvmatrixlib.widgets.table_frame import TableFrame
 
 
@@ -37,24 +35,42 @@ class TableManager(tk.Toplevel):
         self.mainWindow = TableFrame(self)
 
         #--- The Relations Table.
-        Node.isModified = False
         if self._ui.novel is not None:
             self._relationsTable = RelationsTable(self.mainWindow, self._ui.novel, **self._kwargs)
             self._relationsTable.set_nodes()
         self.isOpen = True
         self.mainWindow.pack(fill='both', expand=True, padx=2, pady=2)
 
-    def _apply_changes(self):
-        if Node.isModified:
-            if messagebox.askyesno(self.title(), f"{_('Apply changes')}?", parent=self):
-                self._relationsTable.get_nodes()
-                self._ui.on_element_change()
+        #--- Register the view.
+        self._ui.views.append(self)
+
+        #--- Initialize the view update mechanism.
+        self._lockUpdate = False
+        self.bind('<Control-Button-1>', self.on_element_change)
 
     def on_quit(self, event=None):
-        self._apply_changes()
+        self.isOpen = False
         self._plugin.kwargs['window_geometry'] = self.winfo_geometry()
         self.mainWindow.destroy()
         # this is necessary for deleting the event bindings
         self.destroy()
-        self.isOpen = False
 
+        #--- Unregister the view.
+        self._ui.views.remove(self)
+
+    def update(self):
+        """Update the view."""
+        if self.isOpen:
+            if self._lockUpdate:
+                self._lockUpdate = False
+            else:
+                self.mainWindow.pack_forget()
+                self.mainWindow.destroy()
+                self.mainWindow = TableFrame(self)
+                self.mainWindow.pack(fill='both', expand=True, padx=2, pady=2)
+                self._relationsTable.draw_matrix(self.mainWindow)
+                self._relationsTable.set_nodes()
+
+    def on_element_change(self, event=None):
+        self._lockUpdate = True
+        self._relationsTable.get_nodes()

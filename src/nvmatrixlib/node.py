@@ -10,13 +10,9 @@ import tkinter as tk
 class Node(tk.Label):
     """A visual matrix node, representing a boolean value.
     
-    Class variables:
-        isModified: Boolean -- True, if at least one instance has changed its state.
-    
     Properties:
         state: Boolean -- Node state. Changes its value and view when clicked on.
     """
-    isModified = False
     marker = '⬛'
 
     def __init__(self, master, colorFalse='white', colorTrue='black', cnf={}, **kw):
@@ -51,4 +47,3 @@ class Node(tk.Label):
 
     def _toggle_state(self, event=None):
         self.state = not self._state
-        Node.isModified = True

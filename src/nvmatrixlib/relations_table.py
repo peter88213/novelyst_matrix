@@ -29,6 +29,11 @@ class RelationsTable:
             novel: Novel -- Project reference.
             
         """
+        self._novel = novel
+        self._kwargs = kwargs
+        self.draw_matrix(master)
+
+    def draw_matrix(self, master):
 
         def fill_str(text):
             """Return a string that is at least 7 characters long.
@@ -41,9 +46,8 @@ class RelationsTable:
                 text = f' {text} '
             return text
 
-        colorsBackground = ((kwargs['color_bg_00'], kwargs['color_bg_01']),
-                            (kwargs['color_bg_10'], kwargs['color_bg_11']))
-        self._novel = novel
+        colorsBackground = ((self._kwargs['color_bg_00'], self._kwargs['color_bg_01']),
+                            (self._kwargs['color_bg_10'], self._kwargs['color_bg_11']))
         columns = []
         col = 0
         bgc = col % 2
@@ -91,7 +95,7 @@ class RelationsTable:
         if self._novel.arcs:
             arcTitleWindow = tk.Frame(master.columnTitles)
             arcTitleWindow.pack(side='left', fill='both')
-            tk.Label(arcTitleWindow, text=_('Arcs'), bg=kwargs['color_arc_heading']).pack(fill='x')
+            tk.Label(arcTitleWindow, text=_('Arcs'), bg=self._kwargs['color_arc_heading']).pack(fill='x')
             arcTypeColumn = tk.Frame(master.display)
             arcTypeColumn.pack(side='left', fill='both')
             arcColumn = tk.Frame(arcTypeColumn)
@@ -117,7 +121,7 @@ class RelationsTable:
                     bgr = row % 2
                     node = Node(columns[col],
                          colorFalse=colorsBackground[bgr][bgc],
-                         colorTrue=kwargs['color_arc_node']
+                         colorTrue=self._kwargs['color_arc_node']
                          )
                     node.pack(fill='x', expand=True)
                     self._arcNodes[scId][acId] = node
@@ -130,7 +134,7 @@ class RelationsTable:
                          anchor='w'
                          ).pack(fill='x', expand=True)
                 col += 1
-            tk.Label(arcTypeColumn, text=_('Arcs'), bg=kwargs['color_arc_heading']).pack(fill='x')
+            tk.Label(arcTypeColumn, text=_('Arcs'), bg=self._kwargs['color_arc_heading']).pack(fill='x')
 
         #--- Character columns.
         if self._novel.characters:
@@ -140,7 +144,7 @@ class RelationsTable:
             characterColumn.pack(fill='both')
             characterTitleWindow = tk.Frame(master.columnTitles)
             characterTitleWindow.pack(side='left', fill='both')
-            tk.Label(characterTitleWindow, text=_('Characters'), bg=kwargs['color_character_heading']).pack(fill='x')
+            tk.Label(characterTitleWindow, text=_('Characters'), bg=self._kwargs['color_character_heading']).pack(fill='x')
             for crId in self._novel.tree.get_children(CR_ROOT):
                 # Display character titles.
                 row = 1
@@ -162,7 +166,7 @@ class RelationsTable:
                     bgr = row % 2
                     node = Node(columns[col],
                          colorFalse=colorsBackground[bgr][bgc],
-                         colorTrue=kwargs['color_character_node']
+                         colorTrue=self._kwargs['color_character_node']
                          )
                     node.pack(fill='x', expand=True)
                     self._characterNodes[scId][crId] = node
@@ -175,7 +179,7 @@ class RelationsTable:
                          anchor='w'
                          ).pack(fill='x', expand=True)
                 col += 1
-            tk.Label(characterTypeColumn, text=_('Characters'), bg=kwargs['color_character_heading']).pack(fill='x')
+            tk.Label(characterTypeColumn, text=_('Characters'), bg=self._kwargs['color_character_heading']).pack(fill='x')
 
         #--- Location columns.
         if self._novel.locations:
@@ -185,7 +189,7 @@ class RelationsTable:
             locationColumn.pack(fill='both')
             locationTitleWindow = tk.Frame(master.columnTitles)
             locationTitleWindow.pack(side='left', fill='both')
-            tk.Label(locationTitleWindow, text=_('Locations'), bg=kwargs['color_location_heading']).pack(fill='x')
+            tk.Label(locationTitleWindow, text=_('Locations'), bg=self._kwargs['color_location_heading']).pack(fill='x')
             for lcId in self._novel.tree.get_children(LC_ROOT):
                 # Display location titles.
                 row = 1
@@ -207,7 +211,7 @@ class RelationsTable:
                     bgr = row % 2
                     node = Node(columns[col],
                          colorFalse=colorsBackground[bgr][bgc],
-                         colorTrue=kwargs['color_location_node']
+                         colorTrue=self._kwargs['color_location_node']
                          )
                     node.pack(fill='x', expand=True)
                     self._locationNodes[scId][lcId] = node
@@ -220,7 +224,7 @@ class RelationsTable:
                          anchor='w'
                          ).pack(fill='x', expand=True)
                 col += 1
-            tk.Label(locationTypeColumn, text=_('Locations'), bg=kwargs['color_location_heading']).pack(fill='x')
+            tk.Label(locationTypeColumn, text=_('Locations'), bg=self._kwargs['color_location_heading']).pack(fill='x')
 
         #--- Item columns.
         if self._novel.items:
@@ -230,7 +234,7 @@ class RelationsTable:
             itemColumn.pack(fill='both')
             itemTitleWindow = tk.Frame(master.columnTitles)
             itemTitleWindow.pack(side='left', fill='both')
-            tk.Label(itemTitleWindow, text=_('Items'), bg=kwargs['color_item_heading']).pack(fill='x')
+            tk.Label(itemTitleWindow, text=_('Items'), bg=self._kwargs['color_item_heading']).pack(fill='x')
             for itId in self._novel.tree.get_children(IT_ROOT):
                 # Display item titles.
                 row = 1
@@ -252,7 +256,7 @@ class RelationsTable:
                     bgr = row % 2
                     node = Node(columns[col],
                          colorFalse=colorsBackground[bgr][bgc],
-                         colorTrue=kwargs['color_item_node']
+                         colorTrue=self._kwargs['color_item_node']
                          )
                     node.pack(fill='x', expand=True)
                     self._itemNodes[scId][itId] = node
@@ -265,7 +269,7 @@ class RelationsTable:
                          anchor='w'
                          ).pack(fill='x', expand=True)
                 col += 1
-            tk.Label(itemTypeColumn, text=_('Items'), bg=kwargs['color_item_heading']).pack(fill='x')
+            tk.Label(itemTypeColumn, text=_('Items'), bg=self._kwargs['color_item_heading']).pack(fill='x')
 
     def set_nodes(self):
         """Loop through all nodes, setting states."""
@@ -294,20 +298,22 @@ class RelationsTable:
             # Arcs.
             scArcs = []
             for acId in self._novel.arcs:
+                arcSections = self._novel.arcs[acId].sections
                 node = self._arcNodes[scId][acId]
                 if node.state:
                     scArcs.append(acId)
+                    if not scId in arcSections:
+                        arcSections.append(scId)
                 else:
-                    arcSections = self._novel.arcs[acId].sections
                     if scId in arcSections:
                         arcSections.remove(scId)
-                        self._novel.arcs[acId].sections = arcSections
                         scTurningPoints = self._novel.sections[scId].scTurningPoints
                         for tpId in list(scTurningPoints):
                             if scTurningPoints[tpId] == acId:
                                 self._novel.turningPoints[tpId].sectionAssoc = None
                                 del scTurningPoints[tpId]
                                 self._novel.sections[scId].scTurningPoints = scTurningPoints
+                self._novel.arcs[acId].sections = arcSections
             self._novel.sections[scId].scArcs = scArcs
 
             # Characters.
