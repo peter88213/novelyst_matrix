@@ -45,7 +45,7 @@ class TableManager(tk.Toplevel):
         self._ui.views.append(self)
 
         #--- Initialize the view update mechanism.
-        self._lockUpdate = False
+        self._skipUpdate = False
         self.bind('<Control-Button-1>', self.on_element_change)
 
     def on_quit(self, event=None):
@@ -59,11 +59,9 @@ class TableManager(tk.Toplevel):
         self._ui.views.remove(self)
 
     def update(self):
-        """Update the view."""
+        """Refresh the view after changes have been made "outsides"."""
         if self.isOpen:
-            if self._lockUpdate:
-                self._lockUpdate = False
-            else:
+            if not self._skipUpdate:
                 self.mainWindow.pack_forget()
                 self.mainWindow.destroy()
                 self.mainWindow = TableFrame(self)
@@ -72,5 +70,7 @@ class TableManager(tk.Toplevel):
                 self._relationsTable.set_nodes()
 
     def on_element_change(self, event=None):
-        self._lockUpdate = True
+        """Update the model, but not the view."""
+        self._skipUpdate = True
         self._relationsTable.get_nodes()
+        self._skipUpdate = False

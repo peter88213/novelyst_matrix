@@ -296,47 +296,52 @@ class RelationsTable:
         for scId in self._arcNodes:
 
             # Arcs.
-            scArcs = []
+            self._novel.sections[scId].scArcs = []
             for acId in self._novel.arcs:
                 arcSections = self._novel.arcs[acId].sections
-                node = self._arcNodes[scId][acId]
-                if node.state:
-                    scArcs.append(acId)
+                if self._arcNodes[scId][acId].state:
+                    self._novel.sections[scId].scArcs.append(acId)
                     if not scId in arcSections:
                         arcSections.append(scId)
                 else:
                     if scId in arcSections:
                         arcSections.remove(scId)
-                        scTurningPoints = self._novel.sections[scId].scTurningPoints
-                        for tpId in list(scTurningPoints):
-                            if scTurningPoints[tpId] == acId:
-                                self._novel.turningPoints[tpId].sectionAssoc = None
-                                del scTurningPoints[tpId]
-                                self._novel.sections[scId].scTurningPoints = scTurningPoints
+                    for tpId in list(self._novel.sections[scId].scTurningPoints):
+                        if self._novel.sections[scId].scTurningPoints[tpId] == acId:
+                            del self._novel.sections[scId].scTurningPoints[tpId]
+                            self._novel.turningPoints[tpId].sectionAssoc = None
+                            # don't trigger the update here
                 self._novel.arcs[acId].sections = arcSections
-            self._novel.sections[scId].scArcs = scArcs
 
             # Characters.
-            scCharacters = []
+            scCharacters = self._novel.sections[scId].characters
+            # this keeps the order
             for crId in self._novel.characters:
-                node = self._characterNodes[scId][crId]
-                if node.state:
-                    scCharacters.append(crId)
+                if self._characterNodes[scId][crId].state:
+                    if not crId in scCharacters:
+                        scCharacters.append(crId)
+                elif crId in scCharacters:
+                        scCharacters.remove(crId)
             self._novel.sections[scId].characters = scCharacters
 
             # Locations.
-            scLocations = []
+            scLocations = self._novel.sections[scId].locations
             for lcId in self._novel.locations:
-                node = self._locationNodes[scId][lcId]
-                if node.state:
-                    scLocations.append(lcId)
+                if self._locationNodes[scId][lcId].state:
+                    if not lcId in scLocations:
+                        scLocations.append(lcId)
+                elif lcId in scLocations:
+                        scLocations.remove(lcId)
             self._novel.sections[scId].locations = scLocations
 
             # Items.
-            scItems = []
+            scItems = self._novel.sections[scId].items
             for itId in self._novel.items:
-                node = self._itemNodes[scId][itId]
-                if node.state:
-                    scItems.append(itId)
+                if self._itemNodes[scId][itId].state:
+                    if itId in scItems:
+                        scItems.append(itId)
+                elif not itId in scItems:
+                        scItems.remove(itId)
+
             self._novel.sections[scId].items = scItems
 
