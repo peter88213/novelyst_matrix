@@ -48,6 +48,10 @@ class TableManager(tk.Toplevel):
         self._skipUpdate = False
         self.bind('<Control-Button-1>', self.on_element_change)
 
+    def lock(self):
+        """Inhibit element change."""
+        pass
+
     def on_quit(self, event=None):
         self.isOpen = False
         self._plugin.kwargs['window_geometry'] = self.winfo_geometry()
@@ -57,6 +61,10 @@ class TableManager(tk.Toplevel):
 
         #--- Unregister the view.
         self._ui.views.remove(self)
+
+    def unlock(self):
+        """eneable element change."""
+        pass
 
     def update(self):
         """Refresh the view after changes have been made "outsides"."""
