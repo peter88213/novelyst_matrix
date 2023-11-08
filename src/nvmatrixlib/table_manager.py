@@ -8,6 +8,7 @@ import tkinter as tk
 from novxlib.novx_globals import *
 from nvmatrixlib.relations_table import RelationsTable
 from nvmatrixlib.widgets.table_frame import TableFrame
+from nvmatrixlib.node import Node
 
 
 class TableManager(tk.Toplevel):
@@ -50,7 +51,7 @@ class TableManager(tk.Toplevel):
 
     def lock(self):
         """Inhibit element change."""
-        pass
+        Node.isLocked = True
 
     def on_quit(self, event=None):
         self.isOpen = False
@@ -63,8 +64,8 @@ class TableManager(tk.Toplevel):
         self._ui.views.remove(self)
 
     def unlock(self):
-        """eneable element change."""
-        pass
+        """enable element change."""
+        Node.isLocked = False
 
     def update(self):
         """Refresh the view after changes have been made "outsides"."""

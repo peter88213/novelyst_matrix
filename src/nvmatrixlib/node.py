@@ -14,6 +14,7 @@ class Node(tk.Label):
         state: Boolean -- Node state. Changes its value and view when clicked on.
     """
     marker = '⬛'
+    isLocked = False
 
     def __init__(self, master, colorFalse='white', colorTrue='black', cnf={}, **kw):
         """Place the node to the master widget.
@@ -46,4 +47,5 @@ class Node(tk.Label):
             self.config(text='')
 
     def _toggle_state(self, event=None):
-        self.state = not self._state
+        if not self.isLocked:
+            self.state = not self._state
