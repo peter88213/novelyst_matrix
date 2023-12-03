@@ -1,6 +1,6 @@
 """A test application for the novelyst_matrix plugin.
 
-For further information see https://github.com/peter88213/novelyst_matrix
+For further information see https://github.com/peter88213/noveltree_matrix
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 import sys

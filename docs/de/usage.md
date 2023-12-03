@@ -45,4 +45,4 @@ Das Plugin hängt einen **Matrix**-Eintrag an das *novelyst* **Extras**-Menü, u
 
 # Lizenz
 
-Dies ist quelloffene Software, und das *novelyst_matrix*-Plugin steht unter der GPLv3-Lizenz. Für mehr Details besuchen Sie die[Website der GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.de.html), oder schauen Sie sich die [LICENSE](https://github.com/peter88213/novelyst_matrix/blob/main/LICENSE)-Datei an.
+Dies ist quelloffene Software, und das *novelyst_matrix*-Plugin steht unter der GPLv3-Lizenz. Für mehr Details besuchen Sie die[Website der GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.de.html), oder schauen Sie sich die [LICENSE](https://github.com/peter88213/noveltree_matrix/blob/main/LICENSE)-Datei an.
