@@ -2,7 +2,7 @@
 
 Requires Python 3.6+
 Copyright (c) 2023 Peter Triesberger
-For further information see https://github.com/peter88213/noveltree_matrix
+For further information see https://github.com/peter88213/nv_matrix
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 This program is free software: you can redistribute it and/or modify
@@ -52,7 +52,7 @@ except:
     # Fallback for old Windows versions.
     CURRENT_LANGUAGE = locale.getdefaultlocale()[0][:2]
 try:
-    t = gettext.translation('noveltree_matrix', LOCALE_PATH, languages=[CURRENT_LANGUAGE])
+    t = gettext.translation('nv_matrix', LOCALE_PATH, languages=[CURRENT_LANGUAGE])
     _ = t.gettext
 except:
 
@@ -73,10 +73,10 @@ class Plugin:
         on_close() -- Apply changes and close the window.
     """
     VERSION = '@release'
-    NOVELYST_API = '5.0'
+    NOVELYST_API = '0.1'
     DESCRIPTION = 'A section relationship table'
-    URL = 'https://peter88213.github.io/noveltree_matrix'
-    _HELP_URL = 'https://peter88213.github.io/noveltree_matrix/usage'
+    URL = 'https://peter88213.github.io/nv_matrix'
+    _HELP_URL = 'https://peter88213.github.io/nv_matrix/usage'
 
     def install(self, ui):
         """Add a submenu to the 'Tools' menu.

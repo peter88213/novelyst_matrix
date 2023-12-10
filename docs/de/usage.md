@@ -1,4 +1,4 @@
-[Projekt-Homepage](https://peter88213.github.io/noveltree_matrix) > Gebrauchsanleitung
+[Projekt-Homepage](https://peter88213.github.io/nv_matrix) > Gebrauchsanleitung
 
 --- 
 
@@ -8,7 +8,7 @@ Ein [noveltree](https://peter88213.github.io/noveltree/)-Plugin providing a sect
 
 # Installation
 
-Wenn [noveltree](https://peter88213.github.io/noveltree/) installiert ist, installiert das Setup-Skript automatisch das*noveltree_matrix*-Plugin im *noveltree* Plugin-Verzeichnis.
+Wenn [noveltree](https://peter88213.github.io/noveltree/) installiert ist, installiert das Setup-Skript automatisch das*nv_matrix*-Plugin im *noveltree* Plugin-Verzeichnis.
 
 Das Plugin hängt einen **Matrix**-Eintrag an das *noveltree* **Extras**-Menü, und einen **Matrix-Plugin Online-Hilfe**-Eintrag an das **Hilfe**-Menü an. 
 
@@ -45,4 +45,4 @@ Das Plugin hängt einen **Matrix**-Eintrag an das *noveltree* **Extras**-Menü, 
 
 # Lizenz
 
-Dies ist quelloffene Software, und das *noveltree_matrix*-Plugin steht unter der GPLv3-Lizenz. Für mehr Details besuchen Sie die[Website der GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.de.html), oder schauen Sie sich die [LICENSE](https://github.com/peter88213/noveltree_matrix/blob/main/LICENSE)-Datei an.
+Dies ist quelloffene Software, und das *nv_matrix*-Plugin steht unter der GPLv3-Lizenz. Für mehr Details besuchen Sie die[Website der GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.de.html), oder schauen Sie sich die [LICENSE](https://github.com/peter88213/nv_matrix/blob/main/LICENSE)-Datei an.

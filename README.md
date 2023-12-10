@@ -1,8 +1,8 @@
-# noveltree_matrix
+# nv_matrix
 
 A plugin providing a section relationship matrix. 
 
-For more information, see the [project homepage](https://peter88213.github.io/noveltree_matrix) with description and download instructions.
+For more information, see the [project homepage](https://peter88213.github.io/nv_matrix) with description and download instructions.
 
 ## Feedback? Ideas? Feature requests?
 
@@ -22,7 +22,7 @@ For English, this is, for example, `en`, for German, it is `de`.
 
 A "message catalog" is a dictionary for the plugin's messages and menu entries.
 
-For creating a message catalog, you download a template with all English messages from [here](https://github.com/peter88213/noveltree_matrix/blob/main/i18n/messages.pot). 
+For creating a message catalog, you download a template with all English messages from [here](https://github.com/peter88213/nv_matrix/blob/main/i18n/messages.pot). 
 
 
 Rename `messages.pot` to `<your language code>.po`, then give some specific information in the header data by modifying the following lines:
@@ -53,12 +53,12 @@ Before you distribute your translations, you can convert and install the message
 The plugin needs the message catalog in binary format. This is easily achieved using the **msgfmt.py** converter script. 
 You find it in your Python installation, in the **Tools/i18n** subdirectory. If not, you can download the code from [here](https://github.com/python/cpython/blob/main/Tools/i18n/msgfmt.py)
 
-Name the binary file **noveltree_matrix.mo**. 
+Name the binary file **nv_matrix.mo**. 
 
 
 ### Install your translation for testing
 
-Add a subdirectory tree to **noveltree/locale**, and place *noveltree_matrix.mo* there, like this:
+Add a subdirectory tree to **noveltree/locale**, and place *nv_matrix.mo* there, like this:
 
 ```
 <your home directory>
@@ -67,14 +67,14 @@ Add a subdirectory tree to **noveltree/locale**, and place *noveltree_matrix.mo*
         └── locale/
             └─ <language code>/
                └─ LC_MESSAGES/
-                  └─ noveltree_matrix.mo
+                  └─ nv_matrix.mo
 ```
 
 Then start *noveltree* and see whether your translation works. 
 
 **NOTE:** At startup, *noveltree* tries to load a message dictionary that fits to the system language. If it doesn't find a matching language code in the *locale* directory, it uses English as default language. 
 
-**HINT:** *noveltree_matrix* comes with German translations. Look at the `de` directory tree, if you need an example. 
+**HINT:** *nv_matrix* comes with German translations. Look at the `de` directory tree, if you need an example. 
 
 
 ### Contribute your translations
@@ -86,7 +86,7 @@ An easy way may be to put a posting in the [noveltree forum](https://github.com/
 
 ## Development
 
-*noveltree_matrix* depends on the [novxlib](https://github.com/peter88213/novxlib) library which must be present in your file system. It is organized as an Eclipse PyDev project. The official release branch on GitHub is *main*.
+*nv_matrix* depends on the [novxlib](https://github.com/peter88213/novxlib) library which must be present in your file system. It is organized as an Eclipse PyDev project. The official release branch on GitHub is *main*.
 
 ### Mandatory directory structure for building the application script
 
@@ -95,7 +95,7 @@ An easy way may be to put a posting in the [noveltree forum](https://github.com/
 ├── novxlib/
 │   └── src/
 │       └── novxlib/
-└── noveltree_matrix/
+└── nv_matrix/
     ├── src/
     ├── test/
     └── tools/ 
@@ -118,8 +118,8 @@ See https://github.com/peter88213/novxlib/blob/main/docs/conventions.md
 
 ## License
 
-This is Open Source software, and the *noveltree_matrix* plugin is licensed under GPLv3. See the
+This is Open Source software, and the *nv_matrix* plugin is licensed under GPLv3. See the
 [GNU General Public License website](https://www.gnu.org/licenses/gpl-3.0.en.html) for more
-details, or consult the [LICENSE](https://github.com/peter88213/noveltree_matrix/blob/main/LICENSE) file.
+details, or consult the [LICENSE](https://github.com/peter88213/nv_matrix/blob/main/LICENSE) file.
 
 The modules in the *widgets* package are published under the [MIT License](http://www.opensource.org/licenses/mit-license.php). 

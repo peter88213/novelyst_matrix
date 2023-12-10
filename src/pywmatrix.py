@@ -1,13 +1,13 @@
-"""A test application for the noveltree_matrix plugin.
+"""A test application for the nv_matrix plugin.
 
-For further information see https://github.com/peter88213/noveltree_matrix
+For further information see https://github.com/peter88213/nv_matrix
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 import sys
 import tkinter as tk
 from novxlib.novxlib_globals import *
 from novxlib.ui.main_tk import MainTk
-from noveltree_matrix import Plugin
+from nv_matrix import Plugin
 
 APPLICATION = 'Matrix'
 
