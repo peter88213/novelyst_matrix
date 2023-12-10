@@ -1,26 +1,26 @@
-# novelyst_matrix
+# noveltree_matrix
 
-The [novelyst](https://peter88213.github.io/novelyst/) Python program helps authors organize novels.  
+The [noveltree](https://peter88213.github.io/noveltree/) Python program helps authors organize novels.  
 
-*novelyst_matrix* is a plugin providing a section relationship matrix. 
+*noveltree_matrix* is a plugin providing a section relationship matrix. 
 
 ![Screenshot](Screenshots/screen01.png)
 
 ## Features
 
-- The plugin adds a "Matrix" entry to the *novelyst* "Tools" menu.
+- The plugin adds a "Matrix" entry to the *noveltree* "Tools" menu.
 - Display section relationships to characters, locations, items, and arcs with a spreadsheet-like matrix.
 - Add/Remove relationships by klicking on the nodes.
 
 ## Requirements
 
-- [novelyst](https://peter88213.github.io/novelyst/) version 4.0+
+- [noveltree](https://peter88213.github.io/noveltree/) version 4.0+
 
 ## Download and install
 
-[Download the latest release (version 0.99.0)](https://github.com/peter88213/noveltree_matrix/raw/main/dist/novelyst_matrix_v0.99.0.zip)
+[Download the latest release (version 0.99.0)](https://github.com/peter88213/noveltree_matrix/raw/main/dist/noveltree_matrix_v0.99.0.zip)
 
-- Extract the "novelyst_matrix_v0.99.0" folder from the downloaded zipfile "novelyst_matrix_v0.99.0.zip".
+- Extract the "noveltree_matrix_v0.99.0" folder from the downloaded zipfile "noveltree_matrix_v0.99.0.zip".
 - Move into this new folder and launch **setup.pyw**. This installs the plugin for the local user.
 
 ---
@@ -37,6 +37,6 @@ See the [instructions for use](usage)
 
 ## License
 
-This is Open Source software, and the *novelyst_matrix* plugin is licensed under GPLv3. See the
+This is Open Source software, and the *noveltree_matrix* plugin is licensed under GPLv3. See the
 [GNU General Public License website](https://www.gnu.org/licenses/gpl-3.0.en.html) for more
 details, or consult the [LICENSE](https://github.com/peter88213/noveltree_matrix/blob/main/LICENSE) file.

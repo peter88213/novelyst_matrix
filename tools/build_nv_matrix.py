@@ -1,10 +1,10 @@
-"""Build a matrix novelyst plugin.
+"""Build a matrix noveltree plugin.
         
 In order to distribute a single script without dependencies, 
 this script "inlines" all modules imported from the novxlib package.
 
 The novxlib project (see https://github.com/peter88213/novxlib)
-must be located on the same directory level as the novelyst_matrix project. 
+must be located on the same directory level as the noveltree_matrix project. 
 
 Copyright (c) 2023 Peter Triesberger
 For further information see https://github.com/peter88213/noveltree_matrix
@@ -17,8 +17,8 @@ import inliner
 
 SRC = '../src/'
 BUILD = '../test/'
-SOURCE_FILE = f'{SRC}novelyst_matrix.py'
-TARGET_FILE = f'{BUILD}novelyst_matrix.py'
+SOURCE_FILE = f'{SRC}nv_matrix.py'
+TARGET_FILE = f'{BUILD}noveltree_matrix.py'
 
 
 def main():

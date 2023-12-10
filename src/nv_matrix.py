@@ -1,4 +1,4 @@
-"""A relationship matrix plugin for novelyst
+"""A relationship matrix plugin for noveltree
 
 Requires Python 3.6+
 Copyright (c) 2023 Peter Triesberger
@@ -52,7 +52,7 @@ except:
     # Fallback for old Windows versions.
     CURRENT_LANGUAGE = locale.getdefaultlocale()[0][:2]
 try:
-    t = gettext.translation('novelyst_matrix', LOCALE_PATH, languages=[CURRENT_LANGUAGE])
+    t = gettext.translation('noveltree_matrix', LOCALE_PATH, languages=[CURRENT_LANGUAGE])
     _ = t.gettext
 except:
 
@@ -64,7 +64,7 @@ PLUGIN = f'{APPLICATION} plugin v@release'
 
 
 class Plugin:
-    """novelyst relationship matrix plugin class.
+    """noveltree relationship matrix plugin class.
     
     Public methods:
         disable_menu() -- disable menu entries when no project is open.
@@ -75,8 +75,8 @@ class Plugin:
     VERSION = '@release'
     NOVELYST_API = '5.0'
     DESCRIPTION = 'A section relationship table'
-    URL = 'https://peter88213.github.io/novelyst_matrix'
-    _HELP_URL = 'https://peter88213.github.io/novelyst_matrix/usage'
+    URL = 'https://peter88213.github.io/noveltree_matrix'
+    _HELP_URL = 'https://peter88213.github.io/noveltree_matrix/usage'
 
     def install(self, ui):
         """Add a submenu to the 'Tools' menu.
@@ -90,7 +90,7 @@ class Plugin:
         #--- Load configuration.
         try:
             homeDir = str(Path.home()).replace('\\', '/')
-            configDir = f'{homeDir}/.novelyst/config'
+            configDir = f'{homeDir}/.noveltree/config'
         except:
             configDir = '.'
         self.iniFile = f'{configDir}/matrix.ini'
@@ -131,7 +131,7 @@ class Plugin:
         self.on_quit()
 
     def on_quit(self):
-        """Actions to be performed when novelyst is closed."""
+        """Actions to be performed when noveltree is closed."""
         if self._matrixViewer:
             if self._matrixViewer.isOpen:
                 self._matrixViewer.on_quit()

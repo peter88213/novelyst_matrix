@@ -14,7 +14,7 @@ File structure:
 │   └── src/
 │       ├── translations.py
 │       └── msgfmt.py
-└── novelyst_matrix/
+└── noveltree_matrix/
     ├── src/ 
     ├── tools/ 
     │   └── translate_de.py
@@ -28,7 +28,7 @@ File structure:
         └── plugin_locale/
             └─ de/
                └─ LC_MESSAGES/
-                  └─ novelyst_matrix.mo
+                  └─ noveltree_matrix.mo
     
 Copyright (c) 2022 Peter Triesberger
 For further information see https://github.com/peter88213/noveltree_matrix
@@ -41,7 +41,7 @@ import translations
 from shutil import copyfile
 import msgfmt
 
-APP_NAME = 'novelyst_matrix'
+APP_NAME = 'nv_matrix'
 PO_PATH = '../i18n/de.po'
 MO_PATH = f'../i18n/locale/de/LC_MESSAGES/{APP_NAME}.mo'
 MO_COPY = f'../../kalliope/src/locale/de/LC_MESSAGES/{APP_NAME}.mo'

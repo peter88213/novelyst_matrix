@@ -1,5 +1,5 @@
 /build/
 /test/yw7/
-/test/novelyst_matrix.py
+/test/noveltree_matrix.py
 *.pyc
 *.bak

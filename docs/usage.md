@@ -1,16 +1,16 @@
-[Project homepage](https://peter88213.github.io/novelyst_matrix) > Instructions for use
+[Project homepage](https://peter88213.github.io/noveltree_matrix) > Instructions for use
 
 --- 
 
-A [novelyst](https://peter88213.github.io/novelyst/) plugin providing a section relationship matrix.
+A [noveltree](https://peter88213.github.io/noveltree/) plugin providing a section relationship matrix.
 
 ---
 
 # Installation
 
-If [novelyst](https://peter88213.github.io/novelyst/) is installed, the setup script auto-installs the *novelyst_matrix* plugin in the *novelyst* plugin directory.
+If [noveltree](https://peter88213.github.io/noveltree/) is installed, the setup script auto-installs the *noveltree_matrix* plugin in the *noveltree* plugin directory.
 
-The plugin adds a **Matrix** entry to the *novelyst* **Tools** menu, and a **Matrix plugin Online help** entry to the **Help** menu. 
+The plugin adds a **Matrix** entry to the *noveltree* **Tools** menu, and a **Matrix plugin Online help** entry to the **Help** menu. 
 
 ---
 
@@ -45,6 +45,6 @@ The plugin adds a **Matrix** entry to the *novelyst* **Tools** menu, and a **Mat
 
 # License
 
-This is Open Source software, and the *novelyst_matrix* plugin is licensed under GPLv3. See the
+This is Open Source software, and the *noveltree_matrix* plugin is licensed under GPLv3. See the
 [GNU General Public License website](https://www.gnu.org/licenses/gpl-3.0.en.html) for more
 details, or consult the [LICENSE](https://github.com/peter88213/noveltree_matrix/blob/main/LICENSE) file.
