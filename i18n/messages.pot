@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 2.0.6\n"
-"POT-Creation-Date: 2023-12-10 14:38:37\n"
+"POT-Creation-Date: 2023-12-10 16:02:01\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: LANGUAGE\n"
@@ -20,6 +20,9 @@ msgstr ""
 msgid "Characters"
 msgstr ""
 
+msgid "Friday"
+msgstr ""
+
 msgid "Items"
 msgstr ""
 
@@ -32,5 +35,23 @@ msgstr ""
 msgid "Matrix plugin Online help"
 msgstr ""
 
+msgid "Monday"
+msgstr ""
+
+msgid "Saturday"
+msgstr ""
+
 msgid "Sections"
+msgstr ""
+
+msgid "Sunday"
+msgstr ""
+
+msgid "Thursday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Wednesday"
 msgstr ""

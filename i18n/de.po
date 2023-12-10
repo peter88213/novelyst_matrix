@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 2.0.6\n"
-"POT-Creation-Date: 2023-12-10 14:38:37\n"
-"PO-Revision-Date: 2023-12-10 14:38:37\n"
+"POT-Creation-Date: 2023-12-10 16:02:01\n"
+"PO-Revision-Date: 2023-12-10 16:02:02\n"
 "Last-Translator: Peter Triesberger\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -19,6 +19,9 @@ msgstr "Bögen"
 msgid "Characters"
 msgstr "Figuren"
 
+msgid "Friday"
+msgstr "Freitag"
+
 msgid "Items"
 msgstr "Gegenstände"
 
@@ -31,6 +34,24 @@ msgstr "Matrix"
 msgid "Matrix plugin Online help"
 msgstr "Matrix-Plugin Online-Hilfe"
 
+msgid "Monday"
+msgstr "Montag"
+
+msgid "Saturday"
+msgstr "Samstag"
+
 msgid "Sections"
 msgstr "Abschnitte"
+
+msgid "Sunday"
+msgstr "Sonntag"
+
+msgid "Thursday"
+msgstr "Donnerstag"
+
+msgid "Tuesday"
+msgstr "Dienstag"
+
+msgid "Wednesday"
+msgstr "Mittwoch"
 

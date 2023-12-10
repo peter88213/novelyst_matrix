@@ -18,12 +18,12 @@ import inliner
 SRC = '../src/'
 BUILD = '../test/'
 SOURCE_FILE = f'{SRC}nv_matrix.py'
-TARGET_FILE = f'{BUILD}noveltree_matrix.py'
+TARGET_FILE = f'{BUILD}nv_matrix.py'
 
 
 def main():
     inliner.run(SOURCE_FILE, TARGET_FILE, 'nvmatrixlib', '../../novelyst_matrix/src/')
-    inliner.run(TARGET_FILE, TARGET_FILE, 'novxlib-Alpha', '../../novxlib-Alpha/src/', copynovxlib=False)
+    inliner.run(TARGET_FILE, TARGET_FILE, 'novxlib', '../../novxlib-Alpha/src/', copynovxlib=False)
     print('Done.')
 
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="nv_matrix" basedir=".">
 	<property name="version" value="2.0.6" />
-	<property name="plugin" value="noveltree_matrix" />
+	<property name="plugin" value="nv_matrix" />
 	
 	<property name="source-path" location="../src" />
 	<property name="test-path" location="../test" />
