@@ -28,6 +28,9 @@ class TableManager(tk.Toplevel):
         self.protocol("WM_DELETE_WINDOW", self.on_quit)
         self.bind(self._KEY_QUIT_PROGRAM[0], self.on_quit)
 
+        #--- Register the view.
+        self._ui.views.append(self)
+
         #--- Main menu.
         self.mainMenu = tk.Menu(self)
         self.config(menu=self.mainMenu)
@@ -41,9 +44,6 @@ class TableManager(tk.Toplevel):
             self._relationsTable.set_nodes()
         self.isOpen = True
         self.mainWindow.pack(fill='both', expand=True, padx=2, pady=2)
-
-        #--- Register the view.
-        self._ui.views.append(self)
 
         #--- Initialize the view update mechanism.
         self._skipUpdate = False
