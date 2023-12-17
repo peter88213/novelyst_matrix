@@ -38,20 +38,10 @@ from tkinter import ttk
 class TableFrame(ttk.Frame):
     """A tkinter framew for a scrollable table. 
     
-    Public methods:
-        destroy() -- Destructor for deleting event bindings.
-        on_mouse_wheel() -- Event handler for vertical scrolling.
-        on_shift_mouse_wheel() -- Event handler for horizontal scrolling.
-        xview()
-        xview_scroll()
-        yview()
-        yview_scroll()   
-    
     Public instance variables:
         rowTitles -- ttk.Frame for a vertically scrolled column of row titles. 
         columnTitles -- ttk.Frame for a horizontally scrolled row of column titles. 
-        display -- ttk.Frame for columns and rows to be displayed and scrolled in both directions.
-        
+        display -- ttk.Frame for columns and rows to be displayed and scrolled in both directions.        
     """
 
     def __init__(self, parent, *args, **kw):

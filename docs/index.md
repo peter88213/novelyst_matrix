@@ -18,9 +18,9 @@ The [noveltree](https://peter88213.github.io/noveltree/) Python program helps au
 
 ## Download and install
 
-[Download the latest release (version 2.0.7)](https://github.com/peter88213/nv_matrix/raw/main/dist/nv_matrix_v2.0.7.zip)
+[Download the latest release (version 2.1.0)](https://github.com/peter88213/nv_matrix/raw/main/dist/nv_matrix_v2.1.0.zip)
 
-- Extract the "nv_matrix_v2.0.7" folder from the downloaded zipfile "nv_matrix_v2.0.7.zip".
+- Extract the "nv_matrix_v2.1.0" folder from the downloaded zipfile "nv_matrix_v2.1.0.zip".
 - Move into this new folder and launch **setup.pyw**. This installs the plugin for the local user.
 
 ---

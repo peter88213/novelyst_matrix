@@ -14,8 +14,8 @@ from nvmatrixlib.node import Node
 class TableManager(tk.Toplevel):
     _KEY_QUIT_PROGRAM = ('<Control-q>', 'Ctrl-Q')
 
-    def __init__(self, plugin, ui, **kwargs):
-        self._ui = ui
+    def __init__(self, plugin, controller, **kwargs):
+        self._controller = controller
         self._plugin = plugin
         self._kwargs = kwargs
         super().__init__()
@@ -29,7 +29,7 @@ class TableManager(tk.Toplevel):
         self.bind(self._KEY_QUIT_PROGRAM[0], self.on_quit)
 
         #--- Register the view.
-        self._ui.views.append(self)
+        self._controller.views.append(self)
 
         #--- Main menu.
         self.mainMenu = tk.Menu(self)
@@ -39,8 +39,8 @@ class TableManager(tk.Toplevel):
         self.mainWindow = TableFrame(self)
 
         #--- The Relations Table.
-        if self._ui.novel is not None:
-            self._relationsTable = RelationsTable(self.mainWindow, self._ui.novel, **self._kwargs)
+        if self._controller.novel is not None:
+            self._relationsTable = RelationsTable(self.mainWindow, self._controller.novel, **self._kwargs)
             self._relationsTable.set_nodes()
         self.isOpen = True
         self.mainWindow.pack(fill='both', expand=True, padx=2, pady=2)
@@ -61,7 +61,7 @@ class TableManager(tk.Toplevel):
         self.destroy()
 
         #--- Unregister the view.
-        self._ui.views.remove(self)
+        self._controller.views.remove(self)
 
     def unlock(self):
         """enable element change."""

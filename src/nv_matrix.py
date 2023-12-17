@@ -64,26 +64,21 @@ PLUGIN = f'{APPLICATION} plugin v@release'
 
 
 class Plugin:
-    """noveltree relationship matrix plugin class.
-    
-    Public methods:
-        disable_menu() -- disable menu entries when no project is open.
-        enable_menu() -- enable menu entries when a project is open.   
-        on_quit() -- Apply changes and close the window.
-        on_close() -- Apply changes and close the window.
-    """
+    """noveltree relationship matrix plugin class."""
     VERSION = '@release'
-    NOVELYST_API = '0.1'
+    NOVELYST_API = '0.6'
     DESCRIPTION = 'A section relationship table'
     URL = 'https://peter88213.github.io/nv_matrix'
     _HELP_URL = 'https://peter88213.github.io/nv_matrix/usage'
 
-    def install(self, ui):
+    def install(self, controller, ui):
         """Add a submenu to the 'Tools' menu.
         
         Positional arguments:
-            ui -- reference to the NoveltreeUi instance of the application.
+            controller -- reference to the main controller instance of the application.
+            ui -- reference to the main view instance of the application.
         """
+        self._controller = controller
         self._ui = ui
         self._matrixViewer = None
 
@@ -114,8 +109,8 @@ class Plugin:
                 self._matrixViewer.focus()
                 return
 
-        self._matrixViewer = TableManager(self, self._ui, **self.kwargs)
-        self._matrixViewer.title(f'{self._ui.novel.title} - {PLUGIN}')
+        self._matrixViewer = TableManager(self, self._controller, **self.kwargs)
+        self._matrixViewer.title(f'{self._controller.novel.title} - {PLUGIN}')
         set_icon(self._matrixViewer, icon='mLogo32', default=False)
 
     def disable_menu(self):

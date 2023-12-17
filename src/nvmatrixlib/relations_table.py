@@ -12,10 +12,6 @@ from nvmatrixlib.node import Node
 class RelationsTable:
     """Represent a table of relationships. 
     
-    Public methods:
-        set_nodes -- Loop through all nodes, setting states.
-        get_nodes -- Loop through all nodes, modifying the sections according to the states.
-    
     The visual part consists of one frame per column, each containing 
     one node per row. 
     The logical part consists of one dictionary per element type (protected instance variables):
