@@ -4,9 +4,14 @@ Copyright (c) 2024 Peter Triesberger
 For further information see https://github.com/peter88213/nv_matrix
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
-import tkinter as tk
-from novxlib.novx_globals import *
+from novxlib.novx_globals import AC_ROOT
+from novxlib.novx_globals import CH_ROOT
+from novxlib.novx_globals import CR_ROOT
+from novxlib.novx_globals import IT_ROOT
+from novxlib.novx_globals import LC_ROOT
+from novxlib.novx_globals import _
 from nvmatrixlib.node import Node
+import tkinter as tk
 
 
 class RelationsTable:

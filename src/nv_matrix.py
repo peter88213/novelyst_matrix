@@ -15,15 +15,17 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 """
-import sys
-import os
 import gettext
 import locale
-import webbrowser
+import os
 from pathlib import Path
-from novxlib.novx_globals import *
+import sys
+import webbrowser
+
 from novxlib.config.configuration import Configuration
-from novxlib.ui.set_icon_tk import *
+from novxlib.novx_globals import CURRENT_LANGUAGE
+from novxlib.novx_globals import _
+from novxlib.ui.set_icon_tk import set_icon
 from nvmatrixlib.table_manager import TableManager
 
 SETTINGS = dict(
@@ -71,15 +73,16 @@ class Plugin:
     URL = 'https://peter88213.github.io/nv_matrix'
     _HELP_URL = 'https://peter88213.github.io/nv_matrix/usage'
 
-    def install(self, controller, ui):
+    def install(self, model, ui, controller, prefs):
         """Add a submenu to the 'Tools' menu.
         
         Positional arguments:
             controller -- reference to the main controller instance of the application.
             ui -- reference to the main view instance of the application.
         """
-        self._controller = controller
+        self._model = model
         self._ui = ui
+        self._controller = controller
         self._matrixViewer = None
 
         #--- Load configuration.
@@ -109,8 +112,8 @@ class Plugin:
                 self._matrixViewer.focus()
                 return
 
-        self._matrixViewer = TableManager(self, self._controller, **self.kwargs)
-        self._matrixViewer.title(f'{self._controller.novel.title} - {PLUGIN}')
+        self._matrixViewer = TableManager(self._model, self._ui, self._controller, self, **self.kwargs)
+        self._matrixViewer.title(f'{self._model.novel.title} - {PLUGIN}')
         set_icon(self._matrixViewer, icon='mLogo32', default=False)
 
     def disable_menu(self):
