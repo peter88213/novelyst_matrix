@@ -81,9 +81,9 @@ class Plugin:
             ui -- Reference to the main view instance of the application.
             controller -- Reference to the main controller instance of the application.
         """
-        self._model = model
+        self._mdl = model
         self._ui = ui
-        self._controller = controller
+        self._ctrl = controller
         self._matrixViewer = None
 
         #--- Load configuration.
@@ -113,8 +113,8 @@ class Plugin:
                 self._matrixViewer.focus()
                 return
 
-        self._matrixViewer = TableManager(self._model, self._ui, self._controller, self, **self.kwargs)
-        self._matrixViewer.title(f'{self._model.novel.title} - {PLUGIN}')
+        self._matrixViewer = TableManager(self._mdl, self._ui, self._ctrl, self, **self.kwargs)
+        self._matrixViewer.title(f'{self._mdl.novel.title} - {PLUGIN}')
         set_icon(self._matrixViewer, icon='mLogo32', default=False)
 
     def disable_menu(self):

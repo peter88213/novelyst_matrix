@@ -14,9 +14,9 @@ class TableManager(tk.Toplevel):
     _KEY_QUIT_PROGRAM = ('<Control-q>', 'Ctrl-Q')
 
     def __init__(self, model, ui, controller, plugin, **kwargs):
-        self._model = model
+        self._mdl = model
         self._ui = ui
-        self._controller = controller
+        self._ctrl = controller
         self._plugin = plugin
         self._kwargs = kwargs
         super().__init__()
@@ -40,8 +40,8 @@ class TableManager(tk.Toplevel):
         self.mainWindow = TableFrame(self)
 
         #--- The Relations Table.
-        if self._model.novel is not None:
-            self._relationsTable = RelationsTable(self.mainWindow, self._model.novel, **self._kwargs)
+        if self._mdl.novel is not None:
+            self._relationsTable = RelationsTable(self.mainWindow, self._mdl.novel, **self._kwargs)
             self._relationsTable.set_nodes()
         self.isOpen = True
         self.mainWindow.pack(fill='both', expand=True, padx=2, pady=2)
