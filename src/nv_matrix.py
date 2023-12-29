@@ -68,7 +68,7 @@ PLUGIN = f'{APPLICATION} plugin v@release'
 class Plugin:
     """noveltree relationship matrix plugin class."""
     VERSION = '@release'
-    NOVELYST_API = '0.6'
+    NOVELYST_API = '0.7'
     DESCRIPTION = 'A section relationship table'
     URL = 'https://peter88213.github.io/nv_matrix'
     _HELP_URL = 'https://peter88213.github.io/nv_matrix/usage'
@@ -77,8 +77,9 @@ class Plugin:
         """Add a submenu to the 'Tools' menu.
         
         Positional arguments:
-            controller -- reference to the main controller instance of the application.
-            ui -- reference to the main view instance of the application.
+            model -- Reference to the model instance of the application.
+            ui -- Reference to the main view instance of the application.
+            controller -- Reference to the main controller instance of the application.
         """
         self._model = model
         self._ui = ui
