@@ -13,9 +13,9 @@ import tkinter as tk
 class TableManager(tk.Toplevel):
     _KEY_QUIT_PROGRAM = ('<Control-q>', 'Ctrl-Q')
 
-    def __init__(self, model, ui, controller, plugin, **kwargs):
+    def __init__(self, model, view, controller, plugin, **kwargs):
         self._mdl = model
-        self._ui = ui
+        self._ui = view
         self._ctrl = controller
         self._plugin = plugin
         self._kwargs = kwargs
