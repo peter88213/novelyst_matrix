@@ -73,16 +73,16 @@ class Plugin:
     URL = 'https://peter88213.github.io/nv_matrix'
     _HELP_URL = 'https://peter88213.github.io/nv_matrix/usage'
 
-    def install(self, model, ui, controller, prefs):
+    def install(self, model, view, controller, prefs):
         """Add a submenu to the 'Tools' menu.
         
         Positional arguments:
             model -- Reference to the model instance of the application.
-            ui -- Reference to the main view instance of the application.
+            view -- Reference to the main view instance of the application.
             controller -- Reference to the main controller instance of the application.
         """
         self._mdl = model
-        self._ui = ui
+        self._ui = view
         self._ctrl = controller
         self._matrixViewer = None
 
