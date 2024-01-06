@@ -1,8 +1,8 @@
-# nv_matrix
+# noveltree_matrix
 
-A plugin providing a section relationship matrix. 
+A noveltree plugin providing a section relationship matrix. 
 
-For more information, see the [project homepage](https://peter88213.github.io/nv_matrix) with description and download instructions.
+For more information, see the [project homepage](https://peter88peter88213.github.io/noveltree_ with description and download instructions.
 
 ## Feedback? Ideas? Feature requests?
 
@@ -22,7 +22,7 @@ For English, this is, for example, `en`, for German, it is `de`.
 
 A "message catalog" is a dictionary for the plugin's messages and menu entries.
 
-For creating a message catalog, you download a template with all English messages from [here](https://github.com/peter88213/nv_matrix/blob/main/i18n/messages.pot). 
+For creating a message catalog, you download a template with all English messages from [here](https://github.com/peter88213/noveltree_matrix/blob/main/i18n/messages.pot). 
 
 
 Rename `messages.pot` to `<your language code>.po`, then give some specific information in the header data by modifying the following lines:
@@ -119,6 +119,6 @@ See https://github.com/peter88213/novxlib/blob/main/docs/conventions.md
 
 This is Open Source software, and the *nv_matrix* plugin is licensed under GPLv3. See the
 [GNU General Public License website](https://www.gnu.org/licenses/gpl-3.0.en.html) for more
-details, or consult the [LICENSE](https://github.com/peter88213/nv_matrix/blob/main/LICENSE) file.
+details, or consult the [LICENSE](https://github.com/peter88213/noveltree_matrix/blob/main/LICENSE) file.
 
 The modules in the *widgets* package are published under the [MIT License](http://www.opensource.org/licenses/mit-license.php). 
