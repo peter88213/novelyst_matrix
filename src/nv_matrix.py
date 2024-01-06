@@ -100,8 +100,9 @@ class Plugin:
         self.kwargs.update(self.configuration.options)
 
         # Create an entry to the Tools menu.
-        self._ui.toolsMenu.add_command(label=APPLICATION, command=self._start_ui)
-        self._ui.toolsMenu.entryconfig(APPLICATION, state='disabled')
+        position = self._ui.mainMenu.index('end')
+        self._ui.mainMenu.insert_command(position, label=APPLICATION, command=self._start_ui)
+        self._ui.mainMenu.entryconfig(APPLICATION, state='disabled')
 
         # Add an entry to the Help menu.
         self._ui.helpMenu.add_command(label=_('Matrix plugin Online help'), command=lambda: webbrowser.open(self._HELP_URL))
@@ -119,11 +120,11 @@ class Plugin:
 
     def disable_menu(self):
         """Disable menu entries when no project is open."""
-        self._ui.toolsMenu.entryconfig(APPLICATION, state='disabled')
+        self._ui.mainMenu.entryconfig(APPLICATION, state='disabled')
 
     def enable_menu(self):
         """Enable menu entries when a project is open."""
-        self._ui.toolsMenu.entryconfig(APPLICATION, state='normal')
+        self._ui.mainMenu.entryconfig(APPLICATION, state='normal')
 
     def on_close(self):
         """Apply changes and close the window."""

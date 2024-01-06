@@ -20,7 +20,7 @@ The plugin adds a **Matrix** entry to the *noveltree* **Tools** menu, and a **Ma
 
 ## Launch the program
 
-- Open the matrix manager from the main menu: **Tools > Matrix**.
+- Open the matrix manager from the main menu: **Matrix**.
 
 ---
 

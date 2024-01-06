@@ -322,7 +322,7 @@ class RelationsTable:
                     if not crId in scCharacters:
                         scCharacters.append(crId)
                 elif crId in scCharacters:
-                        scCharacters.remove(crId)
+                    scCharacters.remove(crId)
             self._novel.sections[scId].characters = scCharacters
 
             # Locations.
@@ -332,7 +332,7 @@ class RelationsTable:
                     if not lcId in scLocations:
                         scLocations.append(lcId)
                 elif lcId in scLocations:
-                        scLocations.remove(lcId)
+                    scLocations.remove(lcId)
             self._novel.sections[scId].locations = scLocations
 
             # Items.
@@ -341,8 +341,8 @@ class RelationsTable:
                 if self._itemNodes[scId][itId].state:
                     if itId in scItems:
                         scItems.append(itId)
-                elif not itId in scItems:
-                        scItems.remove(itId)
+                elif itId in scItems:
+                    scItems.remove(itId)
 
             self._novel.sections[scId].items = scItems
 

@@ -8,7 +8,7 @@ The [noveltree](https://peter88213.github.io/noveltree/) Python program helps au
 
 ## Features
 
-- The plugin adds a "Matrix" entry to the *noveltree* "Tools" menu.
+- The plugin adds a **Matrix** entry to the *noveltree* main menu.
 - Display section relationships to characters, locations, items, and arcs with a spreadsheet-like matrix.
 - Add/Remove relationships by klicking on the nodes.
 

@@ -8,7 +8,7 @@ The [noveltree](https://peter88213.github.io/noveltree/) Python program helps au
 
 ## Features
 
-- The plugin adds a "Matrix" entry to the *noveltree* "Tools" menu.
+- The plugin adds a **Matrix** entry to the *noveltree* main menu.
 - Display section relationships to characters, locations, items, and arcs with a spreadsheet-like matrix.
 - Add/Remove relationships by klicking on the nodes.
 
@@ -18,9 +18,9 @@ The [noveltree](https://peter88213.github.io/noveltree/) Python program helps au
 
 ## Download and install
 
-[Download the latest release (version 2.2.0)](https://github.com/peter88213/nv_matrix/raw/main/dist/nv_matrix_v2.2.0.zip)
+[Download the latest release (version 2.2.1)](https://github.com/peter88213/nv_matrix/raw/main/dist/nv_matrix_v2.2.1.zip)
 
-- Extract the "nv_matrix_v2.2.0" folder from the downloaded zipfile "nv_matrix_v2.2.0.zip".
+- Extract the "nv_matrix_v2.2.1" folder from the downloaded zipfile "nv_matrix_v2.2.1.zip".
 - Move into this new folder and launch **setup.pyw**. This installs the plugin for the local user.
 
 ---
