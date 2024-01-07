@@ -85,7 +85,7 @@ An easy way may be to put a posting in the [noveltree forum](https://github.com/
 
 ## Development
 
-*nv_matrix* depends on the [novxlib](https://github.com/peter88213/novxlib) library which must be present in your file system. It is organized as an Eclipse PyDev project. The official release branch on GitHub is *main*.
+*noveltree_matrix* depends on the [novxlib](https://github.com/peter88213/novxlib) library which must be present in your file system. It is organized as an Eclipse PyDev project. The official release branch on GitHub is *main*.
 
 ### Mandatory directory structure for building the application script
 
@@ -94,7 +94,7 @@ An easy way may be to put a posting in the [noveltree forum](https://github.com/
 ├── novxlib/
 │   └── src/
 │       └── novxlib/
-└── nv_matrix/
+└── noveltree_matrix/
     ├── src/
     ├── test/
     └── tools/ 

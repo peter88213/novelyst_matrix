@@ -1,8 +1,8 @@
-# nv_matrix
+# noveltree_matrix
 
 The [noveltree](https://peter88213.github.io/noveltree/) Python program helps authors organize novels.  
 
-*nv_matrix* is a plugin providing a section relationship matrix. 
+*noveltree_matrix* is a plugin providing a section relationship matrix. 
 
 ![Screenshot](Screenshots/screen01.png)
 
@@ -37,6 +37,6 @@ See the [instructions for use](usage)
 
 ## License
 
-This is Open Source software, and the *nv_matrix* plugin is licensed under GPLv3. See the
+This is Open Source software, and the *noveltree_matrix* plugin is licensed under GPLv3. See the
 [GNU General Public License website](https://www.gnu.org/licenses/gpl-3.0.en.html) for more
 details, or consult the [LICENSE](https://github.com/peter88213/noveltree_matrix/blob/main/LICENSE) file.
